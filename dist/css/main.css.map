@@ -1,0 +1,1 @@
+{"version":3,"sources":["_global.scss"],"names":[],"mappings":"AAAA,EACE,QAAW,CACX,SAAY,CACZ,cAAe,CACf,sCAAyC,CAE3C,KACE,sBAAuB,CACvB,WAAY","file":"main.css","sourcesContent":["* {\r\n  margin: 0px;\r\n  padding: 0px;\r\n  font-size: 16px;\r\n  font-family: Arial, Helvetica, sans-serif;\r\n}\r\nbody {\r\n  background-color: green;\r\n  height: 50vh;\r\n}\r\n"]}
