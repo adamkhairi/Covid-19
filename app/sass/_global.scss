@@ -1,10 +1,18 @@
 * {
   margin: 0px;
   padding: 0px;
-  font-size: 16px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-family: "Cairo", sans-serif;
 }
-body {
-  background-color: green;
-  height: 50vh;
+.hero {
+  background-color: $yellow;
+  &__alert {
+    text-align: center;
+    margin: 0px auto;
+    p {
+      color: $blue;
+      font-size: 0.9em;
+      font-weight: 600;
+    }
+  }
 }
