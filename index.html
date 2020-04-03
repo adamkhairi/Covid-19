@@ -3,12 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS Link -->
     <link rel="stylesheet" href="dist/css/main.css" />
+
+    <!-- JQuery Link Used for Includes of HTML Files -->
     <script
       src="https://code.jquery.com/jquery-3.4.1.js"
       integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
       crossorigin="anonymous"
     ></script>
+
+    <!-- Font-Familly Import -->
     <link
       href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
       rel="stylesheet"
@@ -16,6 +22,7 @@
     <title>Covid Test</title>
   </head>
   <body>
+    <!-- Include of Section NavBar  -->
     <header>
       <script>
         $(function() {
@@ -23,38 +30,27 @@
         });
       </script>
     </header>
-    <section class="hero">
-      <div class="hero__alert">
-        <h3>LA DERNIÈRE INFO MÉDICALE</h3>
-        <p>
-          La prise d'anti-inflammatoires (ibuprofène,cortisone...) pourrait être
-          un facteur
-          <br />
-          d'aggravation de l’infection.En cas de fièvre, prenez du paracétamol.
-          <br />N'arrêtez pas votre traitement ! Consultez votre médecin ou
-          votre pharmacien.
-        </p>
-      </div>
-      <div class="hero__test">
-        <div class="test__img">
-          <img class="img_hero" src="dist/img/hero_img.png" alt="" />
-        </div>
-        <div class="test__start">
-          <h2 class="start__title--blue">
-            Vous pensez avoir été exposé au <br />
-            Coronavirus COVID-19 et avez des symptômes ?
-          </h2>
-          <img src="dist/img/assets/sic.png" alt="" />
-          <h2 class="start__title--gray">
-            Je reste vigilant ? <br />
-            Je programme une téléconsultation ? <br> J'appelle le 15 ? <br />
-            Faites le test pour répondre en citoyen <br> éclairé selon vos symptômes.
-          </h2>
-          <button class="start"><h2>Demarer le test</h2></button>
-        </div>
-      </div>
-    </section>
+    <!-- END of Section NavBar  -->
 
+    <!-- Include of Section1 (hero) -->
+    <main class="section1">
+      <script>
+        $(function() {
+          $(".section1").load("./dist/includes/home.html");
+        });
+      </script>
+    </main>
+    <!-- End of Section1 (hero) -->
+
+    <!-- Include of Section2 (indice) -->
+    <section class="section2">
+      <script>
+        $(function() {
+          $(".section2").load("./dist/includes/indice.html");
+        });
+      </script>
+    </section>
+    <!-- JavaScript Link -->
     <script src="dist/js/main.js"></script>
   </body>
 </html>

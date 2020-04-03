@@ -76,7 +76,26 @@
 }
 @media (max-width: "340px") {
   * {
-    zoom: 90%;
-    
+    zoom: 95%;
+  }
+  .navbar {
+    padding: 5px;
+    &__logo {
+      width: 60px;
+    }
+    &__menu {
+      a {
+        margin-left: .5em;
+      }
+      .btn__translate-ar {
+        width: 50px;
+       
+        
+        margin-left: .5em;
+        img {
+          display: none;
+        }
+      }
+    }
   }
 }
