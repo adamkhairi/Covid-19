@@ -22,5 +22,11 @@
     margin-left: 20px;
   }
 }
-
+@mixin h2title ($color,$align){
+  font-size: 1.2em;
+  text-align: $align;
+  line-height: 1.5em;
+  color: $color;
+  
+}
 // @include btn-translate(150px,50px,1.1em,3em);
