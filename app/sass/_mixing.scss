@@ -1,6 +1,6 @@
 @mixin btn-translate($width, $height, $fSize, $margin) {
   display: flex;
-  margin-left: $margin; 
+  margin-left: $margin;
   width: $width;
   height: $height;
   font-size: $fSize;
@@ -18,19 +18,17 @@
     margin-left: 20px;
   }
 }
-@mixin h2title ($color,$align){
+@mixin h2title($color, $align) {
   font-size: 1.2em;
   text-align: $align;
   line-height: 1.5em;
   color: $color;
-  
 }
-@mixin h3title ($color,$align){
+@mixin h3title($color, $align) {
   font-size: 1.2em;
   text-align: $align;
   line-height: 1.5em;
   color: $color;
   font-weight: 700;
-  
 }
 // @include btn-translate(150px,50px,1.1em,3em);
