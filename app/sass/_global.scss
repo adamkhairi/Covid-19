@@ -114,24 +114,24 @@
       }
     }
   }
-  @media (max-width: "720px") {
-    * {
-      font-size: 16px;
-    }
-    .indice {
-      h2 {
-        font-size: small;
+}
+    @media (max-width: "720px") {
+      * {
+        font-size: 16px;
       }
-      .indice__cards {
-        .card__img {
-          img {
-            // height: 10em;
+      .indice {
+        h2 {
+          font-size: 16px;
+        }
+        .indice__cards {
+          .card__img {
+            img {
+              // height: 10em;
+            }
           }
         }
       }
     }
-  }
-}
 @media (max-width: "320px") {
   .indice {
     zoom: 95%;
