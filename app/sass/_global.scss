@@ -34,7 +34,7 @@
       }
     }
     .test__start {
-      width: 25em;
+      width: 32em;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -48,18 +48,10 @@
         width: 70px;
       }
       .start__title--gray {
-        @include h2title($gray, center);
+        @include h3title($gray, center);
       }
       .start {
-        width: 24em;
-        height: 2.3em;
-        margin: 1em;
-        border: 2px solid $blue;
-        border-radius: 0.2em;
-        background-color: $blue;
-        h2 {
-          @include h2title(white, center);
-        }
+        @include btn-start;
       }
     }
   }
@@ -172,3 +164,4 @@
 
   }
 }
+// <!-- End of Section (404) -->

@@ -18,17 +18,31 @@
     margin-left: 20px;
   }
 }
-@mixin h2title($color, $align) {
-  font-size: 1.2em;
-  text-align: $align;
-  line-height: 1.5em;
-  color: $color;
+@mixin btn-start {
+  width: 24em;
+        height: 2.3em;
+        margin: 1em;
+        border: 2px solid $blue;
+        border-radius: 0.2em;
+        background-color: $blue;
+        h2 {
+          @include h2title(white, center);
+        }
+  
 }
-@mixin h3title($color, $align) {
-  font-size: 1.2em;
+@mixin h2title($color, $align) {
+  font-size: 1.5em;
   text-align: $align;
   line-height: 1.5em;
   color: $color;
   font-weight: 700;
+
+}
+@mixin h3title($color, $align) {
+  font-size: 1.1em;
+  text-align: $align;
+  line-height: 1.5em;
+  color: $color;
+  font-weight: 650;
 }
 // @include btn-translate(150px,50px,1.1em,3em);
