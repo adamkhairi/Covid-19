@@ -5,7 +5,7 @@ const concat = require("gulp-concat");
 const postcss = require("gulp-postcss");
 const sass = require("gulp-sass");
 const sourcemaps = require("gulp-sourcemaps");
-const uglify = require("gulp-uglify");
+const terser = require("gulp-terser");
 // const fileinclude = require("gulp-file-include");
 
 const files = {
@@ -28,7 +28,7 @@ function scssTask() {
 function jsTask() {
   return src([files.jsPath])
     .pipe(concat("main.js"))
-    .pipe(uglify())
+    .pipe(terser())
     .pipe(dest("dist/js"));
 }
 // Watching Task

@@ -1,1 +1,1 @@
-var myDiv=document.querySelector("#myDiv");myDiv.textContent="Hiiii";
+const mainHtml=document.querySelector("header"),homeLink=document.getElementById("home"),conseilLink=document.getElementById("conseil");homeLink.onclick=function(){mainHtml.innerHTML};
