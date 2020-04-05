@@ -127,3 +127,8 @@ body::-webkit-scrollbar-thumb {
     }
   }
 }
+@media (max-width: "205px") {
+  .navbar__menu{
+    display: none;
+  }
+}

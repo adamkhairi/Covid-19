@@ -4,6 +4,9 @@
   font-size: 20px;
   font-family: "Cairo", sans-serif;
 }
+
+// <!-- Include of Section1 (hero) -->
+
 .hero {
   &__alert {
     background-color: $yellow;
@@ -80,6 +83,10 @@
   }
 }
 
+// <!-- End of Section1 (hero) -->
+
+// <!-- Include of Section2 (indice) -->
+
 .indice {
   h2 {
     @include h2title($blue, center);
@@ -101,7 +108,6 @@
       padding: 0.5em;
       width: 10em;
       text-align: center;
-      
 
       .image_card {
         margin: auto;
@@ -116,19 +122,19 @@
       }
     }
   }
-}
-@media (max-width: "720px") {
-  * {
-    font-size: 16px;
-  }
-  .indice {
-    h2 {
-      font-size: small;
+  @media (max-width: "720px") {
+    * {
+      font-size: 16px;
     }
-    .indice__cards {
-      .card__img {
-        img {
-          // height: 10em;
+    .indice {
+      h2 {
+        font-size: small;
+      }
+      .indice__cards {
+        .card__img {
+          img {
+            // height: 10em;
+          }
         }
       }
     }
@@ -137,5 +143,32 @@
 @media (max-width: "320px") {
   .indice {
     zoom: 95%;
+  }
+}
+
+// <!-- End of Section2 (indice) -->
+
+// <!-- Section3 (Recommanded) -->
+
+// <!-- End of Section3 (Recommanded) -->
+
+// <!-- Section (404) -->
+
+.sc404 {
+  margin: 2em;
+  text-align: center;
+  h1 {
+    font-size: 3em;
+    color: skyblue;
+    span{
+      font-size:2em;
+    }
+  }
+  a{
+    font-size: 3em;
+    color: black;
+    text-decoration: none;
+    font-weight: 900;
+
   }
 }

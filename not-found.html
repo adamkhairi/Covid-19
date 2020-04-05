@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="dist/css/main.css" />
+
+    <!-- JQuery Link Used for Includes of HTML Files -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Font-Familly Import -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Covid Test</title>
+  </head>
+  <body>
+    <!-- Include of Section NavBar  -->
+    <header>
+      <script>
+        $(function () {
+          $("header").load("./dist/includes/navbar.html");
+        });
+      </script>
+    </header>
+
+    <section class="sc404">
+        <h1 ><span>&#128577;</span> <br> Page Not Found <br> Try to Go Back By Clicking Here :</h1>
+        <a href="index.html" >Home</a>
+    </section>
+  </body>
+</html>
