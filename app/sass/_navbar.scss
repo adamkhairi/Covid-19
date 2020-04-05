@@ -25,6 +25,9 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   justify-content: space-between;
   background-color: $bluesky;
+  background-image: url("../img/assets/navback.png");
+  background-size: cover;
+  background-repeat: no-repeat;
   height: 120px;
   font-size: 2em;
   padding: 5px 1em;
@@ -36,10 +39,13 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     align-items: center;
 
-    a {
+    .menu__links {
       margin-left: 3em;
       text-decoration: none;
       font-weight: 700;
+      color: $black;
+    }
+    .active{
       color: $blue;
     }
     .btn__translate-ar {
@@ -59,7 +65,7 @@ body::-webkit-scrollbar-thumb {
       width: 90px;
     }
     &__menu {
-      a {
+      .menu__links {
         margin-left: 1em;
       }
       .btn__translate-ar {
@@ -107,7 +113,7 @@ body::-webkit-scrollbar-thumb {
       width: 60px;
     }
     &__menu {
-      a {
+      .menu__links {
         margin-left: 0.5em;
       }
       .btn__translate-ar {

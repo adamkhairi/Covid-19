@@ -89,7 +89,8 @@
   }
   .indice__cards {
     margin: 1em auto;
-    width: 55%;
+    width: 39%;
+    padding: 1em;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -98,16 +99,17 @@
     .card__img {
       margin: 0.8em;
       padding: 0.5em;
-      width: 15em;
+      width: 10em;
       text-align: center;
-      .temp {
-        width: 5em;
-      }
+      
 
-      img {
+      .image_card {
         margin: auto;
-        // width: 250px;
-        height: 12.5em;
+        width: 8em;
+        // height: 10.5em;
+      }
+      .temp {
+        width: 4em;
       }
       h3 {
         @include h3title($black, center);
@@ -126,7 +128,7 @@
     .indice__cards {
       .card__img {
         img {
-          height: 10em;
+          // height: 10em;
         }
       }
     }
