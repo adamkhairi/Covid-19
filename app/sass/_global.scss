@@ -239,7 +239,6 @@
   // justify-content: center;
   padding-bottom: 1em;
 
-
   a {
     text-decoration: none;
   }
@@ -257,8 +256,7 @@
   }
   &__links {
     width: fit-content;
-    margin: 1em ;
-   
+    margin: 1em;
   }
   .links__btn {
     @include btn-start;
@@ -270,6 +268,33 @@
 }
 
 // <!-- End of Section3 (information) -->
+
+// <!-- Include of Section5 (trans) -->
+
+.trans {
+  &__title {
+    @include h2title($blue, center);
+  }
+  &__fig {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    .figure {
+      margin: 1em auto;
+      text-align: center;
+      width: 20em;
+      &__img {
+        width: 8em;
+      }
+      &__txt {
+        @include h3title($black, center);
+      }
+    }
+  }
+}
+
+// <!-- End of Section5 (trans) -->
 
 @media (max-width: "320px") {
   * {
