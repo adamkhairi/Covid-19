@@ -209,7 +209,7 @@
     &__txt {
       margin: auto;
       width: 15em;
-      @include h3title($black, center);
+      @include h3title($dblue, center);
     }
   }
 }
@@ -225,6 +225,52 @@
 }
 
 // <!-- End of Section2 (protect) -->
+
+// <!-- Include of Section3 (information) -->
+
+.information {
+  background-color: $bluesky;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  // height: 15em;
+  // justify-content: center;
+  padding-bottom: 1em;
+
+
+  a {
+    text-decoration: none;
+  }
+  .info {
+    width: 18em;
+    margin: 1em;
+    &__title {
+      @include h2title($blue, center);
+      margin: 1em 0em;
+    }
+    &__txt {
+      @include h3title($dblue, center);
+      line-height: 2em;
+    }
+  }
+  &__links {
+    width: fit-content;
+    margin: 1em ;
+   
+  }
+  .links__btn {
+    @include btn-start;
+    color: white;
+    padding: 0.5em 1em;
+    font-size: 1.2em;
+    width: 14em;
+  }
+}
+
+// <!-- End of Section3 (information) -->
+
 @media (max-width: "320px") {
   * {
     font-size: small;
