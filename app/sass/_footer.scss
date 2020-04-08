@@ -90,15 +90,16 @@
     width: 70px;
   }
   &__start {
+    cursor: pointer;
+    text-decoration: none;
     @include btn-start;
-    // width: 40%;
+
   }
   @media (max-width: "720px") {
     * {
       font-size: small;
     }
     .footer2__start {
-      @include btn-start;
       width: 40%;
     }
   }

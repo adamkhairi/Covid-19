@@ -1,1 +1,1 @@
-const mainHtml=document.querySelector("header"),homeLink=document.getElementById("home"),conseilLink=document.getElementById("conseil");homeLink.onclick=function(){mainHtml.innerHTML};
+const testStartBtn=document.querySelector(".test__start .start");testStartBtn.onclick=function(){window.load};
