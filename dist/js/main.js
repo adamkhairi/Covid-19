@@ -1,1 +1,1 @@
-const testStartBtn=document.querySelector(".test__start .start");testStartBtn.onclick=function(){window.load};
+function current(e){e.className.add(".active")}function next(){document.querySelector("#formQts").style.display="none",document.querySelector("#formAns").style.display="none"}function back(){document.querySelector("#formQts").style.display="block",document.querySelector("#formAns").style.display="block"}

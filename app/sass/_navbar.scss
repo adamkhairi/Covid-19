@@ -13,14 +13,15 @@ body::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: $blue;
   background-image: -webkit-gradient(
-    linear,
-    40% 0%,
-    75% 60%,
-    from($blue),
-    to($blue),
-    color-stop(0.4, $bluesky)
+                  linear,
+                  40% 0%,
+                  75% 60%,
+                  from($blue),
+                  to($blue),
+                  color-stop(0.4, $bluesky)
   );
 }
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -31,10 +32,12 @@ body::-webkit-scrollbar-thumb {
   height: 120px;
   font-size: 2em;
   padding: 5px 1em;
+
   &__logo {
     margin: 0.2em;
     width: 100px;
   }
+
   &__menu {
     display: flex;
     align-items: center;
@@ -45,9 +48,11 @@ body::-webkit-scrollbar-thumb {
       font-weight: 700;
       color: $black;
     }
-    .active{
+
+    .active {
       color: $blue;
     }
+
     .btn__translate-ar {
       @include btn-translate(150px, 50px, 1.1em, 3em);
     }
@@ -61,13 +66,16 @@ body::-webkit-scrollbar-thumb {
 
   .navbar {
     height: 80px;
+
     &__logo {
       width: 90px;
     }
+
     &__menu {
       .menu__links {
         margin-left: 1em;
       }
+
       .btn__translate-ar {
         width: 100px;
         height: 42px;
@@ -77,6 +85,7 @@ body::-webkit-scrollbar-thumb {
     }
   }
 }
+
 @media (max-width: "512px") {
   * {
     font-size: smaller;
@@ -84,18 +93,22 @@ body::-webkit-scrollbar-thumb {
 
   .navbar {
     padding: 5px;
+
     &__logo {
       width: 60px;
     }
+
     &__menu {
       a {
         margin-left: 1em;
       }
+
       .btn__translate-ar {
         width: 90px;
         height: 35px;
         font-size: 14px;
         margin-left: 1em;
+
         img {
           display: none;
         }
@@ -103,23 +116,28 @@ body::-webkit-scrollbar-thumb {
     }
   }
 }
+
 @media (max-width: "340px") {
   * {
     zoom: 95%;
   }
   .navbar {
     padding: 5px;
+
     &__logo {
       width: 60px;
     }
+
     &__menu {
       .menu__links {
         margin-left: 0.5em;
       }
+
       .btn__translate-ar {
         width: 50px;
 
         margin-left: 0.5em;
+
         img {
           display: none;
         }
@@ -127,8 +145,9 @@ body::-webkit-scrollbar-thumb {
     }
   }
 }
+
 @media (max-width: "205px") {
-  .navbar__menu{
+  .navbar__menu {
     display: none;
   }
 }

@@ -8,6 +8,7 @@
         @include h3title($blue, left);
       }
     }
+
     .form_answer {
       width: 60%;
       text-align: center;
@@ -19,9 +20,11 @@
         position: relative;
         margin: 1em;
       }
+
       .checkbox {
         display: block;
       }
+
       .radio-button input {
         position: absolute;
         margin: 5px;
@@ -29,6 +32,7 @@
         /* for mobile accessibility (iOS Label Bug) */
         visibility: hidden;
       }
+
       .radio-button .label-visible {
         margin-left: 2em;
         margin-bottom: 0;
@@ -44,6 +48,8 @@
         border: 3px solid $blue;
         background-color: white;
       }
+
+      //noinspection SassScssResolvedByNameOnly
       .fake-radiobutton:after {
         content: "";
         display: none;
@@ -59,6 +65,7 @@
       .fake-radiobutton {
         border-radius: 50%;
       }
+
       .fake-radiobutton:after {
         border-radius: 50%;
       }
@@ -66,18 +73,23 @@
       input[type="radio"]:checked + span .fake-radiobutton:after {
         display: block;
       }
+
       ////////
     }
+
     .form_btns {
       width: fit-content;
       margin: 1em auto;
       text-align: center;
+
+
       #form_back,
       #form_next {
         @include btn-start;
         color: white;
         font-weight: 600;
         width: 15em;
+        cursor: pointer;
       }
     }
   }

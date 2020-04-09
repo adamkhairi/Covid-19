@@ -12,12 +12,14 @@
     background-color: $yellow;
     text-align: center;
     margin: 0px auto;
+
     p {
       color: $blue;
       font-size: 0.9em;
       font-weight: 600;
     }
   }
+
   &__test {
     width: 95%;
     display: flex;
@@ -26,13 +28,16 @@
     justify-content: space-around;
     // padding: 1em 0;
     margin: auto;
+
     .test__img {
       margin: 1em;
       text-align: center;
+
       .img_hero {
         width: 100%;
       }
     }
+
     .test__start {
       width: 32em;
       display: flex;
@@ -40,16 +45,20 @@
       justify-content: center;
       align-items: center;
       margin: 1em;
+
       .start__title--blue {
         @include h2title($blue, center);
       }
+
       img {
         margin: 0.8em;
         width: 70px;
       }
+
       .start__title--gray {
         @include h3title($gray, center);
       }
+
       .start {
         cursor: pointer;
         text-decoration: none;
@@ -57,7 +66,8 @@
       }
     }
   }
-  @media (max-width : "720px") {
+
+  @media (max-width: "720px") {
     * {
       font-size: small;
     }
@@ -66,6 +76,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
         .test__img {
           .img_hero {
             width: 80%;
@@ -88,6 +99,7 @@
     width: 80%;
     margin: auto;
   }
+
   .indice__cards {
     margin: 1em auto;
     width: 39%;
@@ -97,6 +109,7 @@
     justify-content: center;
     align-items: baseline;
     flex-wrap: wrap;
+
     .card__img {
       margin: 0.8em;
       padding: 0.5em;
@@ -108,15 +121,18 @@
         width: 8em;
         // height: 10.5em;
       }
+
       .temp {
         width: 4em;
       }
+
       h3 {
         @include h3title($black, center);
       }
     }
   }
 }
+
 @media (max-width: "720px") {
   * {
     font-size: 16px;
@@ -125,6 +141,7 @@
     h2 {
       font-size: 16px;
     }
+
     .indice__cards {
       .card__img {
         img {
@@ -134,6 +151,7 @@
     }
   }
 }
+
 @media (max-width: "320px") {
   .indice {
     zoom: 95%;
@@ -147,13 +165,16 @@
 .sc404 {
   margin: 2em;
   text-align: center;
+
   h1 {
     font-size: 3em;
     color: skyblue;
+
     span {
       font-size: 2em;
     }
   }
+
   a {
     font-size: 3em;
     color: black;
@@ -161,6 +182,7 @@
     font-weight: 900;
   }
 }
+
 // <!-- End of Section (404) -->
 
 //*********** Advice Page ****************
@@ -171,8 +193,8 @@
     @extend .hero__alert;
   }
 }
-// <!-- End of Section1 (a-hero) -->
 
+// <!-- End of Section1 (a-hero) -->
 // <!-- Section2 (protect) -->
 
 .protect {
@@ -181,28 +203,35 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
   &__title {
     @include h2title($blue, center);
   }
+
   &__how {
     width: 70%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: baseline;
+
     flex-wrap: wrap;
+
     .figure {
       margin: 1em auto;
       text-align: center;
       width: 20em;
+
       &__img {
         width: 8em;
       }
+
       &__txt {
         @include h3title($black, center);
       }
     }
   }
+
   .figure {
     &__img {
       width: 8em;
@@ -215,10 +244,12 @@
     }
   }
 }
+
 @media (max-width: "320px") {
   .pretect {
     &__how {
       margin: 0px;
+
       .figure {
         margin: 0px;
       }
@@ -244,22 +275,27 @@
   a {
     text-decoration: none;
   }
+
   .info {
     width: 18em;
     margin: 1em;
+
     &__title {
       @include h2title($blue, center);
       margin: 1em 0em;
     }
+
     &__txt {
       @include h3title($dblue, center);
       line-height: 2em;
     }
   }
+
   &__links {
     width: fit-content;
     margin: 1em;
   }
+
   .links__btn {
     @include btn-start;
     color: white;
@@ -277,18 +313,22 @@
   &__title {
     @include h2title($blue, center);
   }
+
   &__fig {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
+
     .figure {
       margin: 1em auto;
       text-align: center;
       width: 20em;
+
       &__img {
         width: 8em;
       }
+
       &__txt {
         @include h3title($black, center);
       }
