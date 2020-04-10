@@ -33,6 +33,7 @@ questions = [
 	"Êtes-vous enceinte ?",
 	"Avez-vous une maladie connue pour diminuer vos défenses immunitaires ?",
 	"Prenez-vous un traitement immunosuppresseur ? C’est un traitement qui diminue vos défenses contre les infections. Voici quelques exemples : corticoïdes, méthotrexate, ciclosporine, tacrolimus, azathioprine, cyclophosphamide (liste non exhaustive).",
+
 ];
 
 // Button Start Test
@@ -46,23 +47,39 @@ runTest.addEventListener("click", function () {
 
 // Button of Next Question
 let nxtBtn;
-nxtBtn = document.getElementById('form_back');
+nxtBtn = document.getElementById('form_next');
 
-function nextQts() {
+let nextQts;
+nextQts = () => {
 	if (qts.innerText === questions[counter]) {
 		counter++;
-		
 		document.querySelector(".question").innerText = questions[counter];
-		
+		// Todo Fix This
+		if (questions.length === (counter + 1) || questions.length === counter) {
+			nxtBtn.classList.add('hide');
+			nxtBtn.onclick = "";
+			runTestDiv.classList.remove("hide");
+			
+		}
 	}
-}
+};
 
 // Button of Preview Question
 
-function backQts() {
+let backQts;
+backQts = () => {
 	
 	if (counter > 0) {
 		counter--;
 		document.querySelector(".question").innerText = questions[counter];
+		getChose.pop();
 	}
+};
+
+let chose, getChose;
+getChose = [];
+chose = (inp) => {
+	getChose.push(inp.value);
+	alert(getChose);
+	
 }

@@ -61,10 +61,11 @@
                     <!-- jfjf -->
                     <label class="radio-button">
                         <input
-                                checked="checked"
+                                checked="null"
                                 name="form_choice"
                                 type="radio"
                                 value="oui"
+                                onclick="chose(this)"
                         />
                         <span class="label-visible">
                   <span class="fake-radiobutton"></span>
@@ -73,7 +74,7 @@
                     </label>
 
                     <label class="radio-button">
-                        <input name="form_choice" type="radio" value="non"/>
+                        <input name="form_choice" type="radio" value="non" onclick="chose(this)"/>
                         <span class="label-visible">
                   <span class="fake-radiobutton"></span>
                   Non
