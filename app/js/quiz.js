@@ -36,6 +36,39 @@ questions = [
 
 ];
 
+class quiz {
+	constructor(qst, answers) {
+		this.qst = qst;
+		this.answers = answers;
+	}
+}
+
+let reponse;
+reponse = [
+	new quiz(1, [""]),
+	new quiz(2, [""]),
+	new quiz(3, [""]),
+	new quiz(4, [""]),
+	new quiz(5, [""]),
+	new quiz(6, [""]),
+	new quiz(7, [""]),
+	new quiz(8, [""]),
+	new quiz(9, [""]),
+	new quiz(10, [""]),
+	new quiz(11, [""]),
+	new quiz(12, [""]),
+	new quiz(13, [""]),
+	new quiz(14, [""]),
+	new quiz(15, [""]),
+	new quiz(16, [""]),
+	new quiz(17, [""]),
+	new quiz(18, [""]),
+	new quiz(19, [""]),
+	new quiz(20, [""]),
+	new quiz(21, [""]),
+	new quiz(22, [""])
+];
+
 // Button Start Test
 runTest.addEventListener("click", function () {
 	runTestDiv.classList.add("hide");
@@ -78,6 +111,7 @@ backQts = () => {
 
 let chose, getChose;
 getChose = [];
+
 chose = (inp) => {
 	getChose.push(inp.value);
 	alert(getChose);
