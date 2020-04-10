@@ -34,12 +34,75 @@
 </header>
 <!-- END of Section NavBar  -->
 <main>
-    <script>
-        $(function () {
-            $("main").load("./dist/includes/quiz.html");
-        });
-    </script>
+
+    <!--    Section Quiz -->
+
+    <section class="quiz">
+        <div class="quiz__start">
+            <h1 class="quiz__title">
+                Vous pensez avoir été exposé au Corona virus COVID-19 et avez des
+                symptômes ?
+            </h1>
+            <input
+                    class="start__btn"
+                    id="startTest"
+                    type="submit"
+                    value="Démarrer le test"
+            />
+        </div>
+        <form id="form">
+            <div class="myDiv hide">
+                <div class="form_question" id="formQts">
+                    <h3 class="question">
+
+                    </h3>
+                </div>
+                <div class="form_answer" id="formAns">
+                    <!-- jfjf -->
+                    <label class="radio-button">
+                        <input
+                                checked="checked"
+                                name="form_choice"
+                                type="radio"
+                                value="oui"
+                        />
+                        <span class="label-visible">
+                  <span class="fake-radiobutton"></span>
+                  Oui
+                </span>
+                    </label>
+
+                    <label class="radio-button">
+                        <input name="form_choice" type="radio" value="non"/>
+                        <span class="label-visible">
+                  <span class="fake-radiobutton"></span>
+                  Non
+                </span>
+                    </label>
+                </div>
+
+            </div>
+            <div class="form_btns hide">
+                <input
+                        id="form_back"
+                        onclick="backQts()"
+                        type="button"
+                        value="Question Précédente"
+                />
+                <input
+                        id="form_next"
+                        onclick="nextQts()"
+                        type="button"
+                        value="Question Suivante"
+                />
+            </div>
+        </form>
+    </section>
+
+    <!--  End of Section Quiz -->
+
 </main>
+
 <!-- Section Footer  -->
 <footer class="footer">
     <script>
@@ -51,6 +114,6 @@
 <!-- End of Section Footer -->
 
 <!-- JavaScript Link -->
-<script src="dist/js/main.js"></script>
+<script defer src="dist/js/main.js"></script>
 </body>
 </html>

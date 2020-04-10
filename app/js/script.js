@@ -11,20 +11,26 @@
 //     })
 // }
 
-
 // Quiz Scripts
-function current(activeC) {
-    activeC.className.add(".active")
-}
+// function current(activeC) {
+//     activeC.classList.add(".active")
+// }
 
+// function next() {
+//     let qsDiv, anDiv;
+//     qsDiv = document.querySelectorAll("#formQts");
+//     anDiv = document.querySelectorAll("#formAns");
+//
+//     qsDiv.style.display = "none";
+//     anDiv.style.display = "none";
+//
+//
+// }
 
-function next() {
-
-    document.querySelector("#formQts").style.display = "none";
-    document.querySelector("#formAns").style.display = "none";
-}
-
-function back() {
-    document.querySelector("#formQts").style.display = "block";
-    document.querySelector("#formAns").style.display = "block";
-}
+// function back() {
+//     qsDiv = document.querySelectorAll("#formQts");
+//     anDiv = document.querySelectorAll("#formAns");
+//
+//     qsDiv.style.display = "block";
+//     anDiv.style.display = "block";
+// }

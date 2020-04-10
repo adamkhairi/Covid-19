@@ -2,12 +2,30 @@
   width: 80%;
   margin: 1em auto;
 
+  &__start {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .quiz__title {
+      @include h2title($blue, center);
+      margin: 1em;
+    }
+
+    .start__btn {
+      @include btn-start
+    }
+  }
+
   #form {
     .form_question {
       .question {
         @include h3title($blue, left);
       }
     }
+
 
     .form_answer {
       width: 60%;
@@ -29,7 +47,6 @@
         position: absolute;
         margin: 5px;
         padding: 0;
-        /* for mobile accessibility (iOS Label Bug) */
         visibility: hidden;
       }
 
@@ -49,7 +66,6 @@
         background-color: white;
       }
 
-      //noinspection SassScssResolvedByNameOnly
       .fake-radiobutton:after {
         content: "";
         display: none;
@@ -92,5 +108,11 @@
         cursor: pointer;
       }
     }
+
+
+  }
+
+  .hide {
+    display: none;
   }
 }
