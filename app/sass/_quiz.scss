@@ -21,6 +21,8 @@
 
   #form {
     .form_question {
+      height: 10em;
+
       .question {
         @include h3title($blue, left);
       }

@@ -10,32 +10,6 @@ anDiv = document.querySelectorAll(".form_answer"); // Div of Answers
 qts = document.querySelector(".question"); // H3 Question
 qtsh1 = document.querySelector(".quiz__title");
 
-questions = [
-	"Pensez-vous avoir ou avoir eu de la fièvre ces 10 derniers jours (frissons, sueurs) ?",
-	"Quelle est votre température corporelle ?",
-	"Ces derniers jours, avez-vous une toux ou une augmentation de votre toux habituelle ?",
-	"Avez-vous eu des courbatures inhabituelles au cours des derniers jours ?",
-	"Ces derniers jours, avez-vous un mal de gorge ?",
-	"Ces dernières 24 heures, avez-vous de la diarrhée ? Avec au moins 3 selles molles.",
-	"Ces derniers jours, avez-vous une fatigue inhabituelle qui vous a obligé à vous reposer plus de la moitié de la journée ?",
-	"Avez-vous des difficultés importantes pour vous alimenter ou boire depuis plus de 24h ?",
-	"Dans les dernières 24 heures, avez-vous noté un manque de souffle inhabituel lorsque vous parlez ou faites un petit effort ?",
-	"Actuellement, comment vous vous sentez ?",
-	"Quel est votre âge ? Ceci, afin de calculer un facteur de risque spécifique.",
-	"Quel est votre poids ? Afin de calculer l’indice de masse corporelle qui est un facteur influençant le risque de complications de l’infection.",
-	"Quelle est votre taille ? Afin de calculer l’indice de masse corporelle qui est un facteur influençant le risque de complications de l’infection.",
-	"Avez-vous de l’hypertension artérielle mal équilibrée ? Ou avez-vous une maladie cardiaque ou vasculaire ? Ou prenez-vous un traitement à visée cardiologique ?",
-	"Êtes-vous diabétique ?",
-	"Avez-vous ou avez-vous eu un cancer ?",
-	"Avez-vous une maladie respiratoire ? Ou êtes-vous suivi par un pneumologue ?",
-	"Avez-vous une insuffisance rénale chronique dialysée ?",
-	"Avez-vous une maladie chronique du foie ?",
-	"Êtes-vous enceinte ?",
-	"Avez-vous une maladie connue pour diminuer vos défenses immunitaires ?",
-	"Prenez-vous un traitement immunosuppresseur ? C’est un traitement qui diminue vos défenses contre les infections. Voici quelques exemples : corticoïdes, méthotrexate, ciclosporine, tacrolimus, azathioprine, cyclophosphamide (liste non exhaustive).",
-
-];
-
 class quiz {
 	constructor(qst, answers) {
 		this.qst = qst;
@@ -45,28 +19,28 @@ class quiz {
 
 let reponse;
 reponse = [
-	new quiz(1, [""]),
-	new quiz(2, [""]),
-	new quiz(3, [""]),
-	new quiz(4, [""]),
-	new quiz(5, [""]),
-	new quiz(6, [""]),
-	new quiz(7, [""]),
-	new quiz(8, [""]),
-	new quiz(9, [""]),
-	new quiz(10, [""]),
-	new quiz(11, [""]),
-	new quiz(12, [""]),
-	new quiz(13, [""]),
-	new quiz(14, [""]),
-	new quiz(15, [""]),
-	new quiz(16, [""]),
-	new quiz(17, [""]),
-	new quiz(18, [""]),
-	new quiz(19, [""]),
-	new quiz(20, [""]),
-	new quiz(21, [""]),
-	new quiz(22, [""])
+	new quiz("Pensez-vous avoir ou avoir eu de la fièvre ces 10 derniers jours (frissons, sueurs) ?", [""]),
+	new quiz("Quelle est votre température corporelle ?", [""]),
+	new quiz("Ces derniers jours, avez-vous une toux ou une augmentation de votre toux habituelle ?", [""]),
+	new quiz("Avez-vous eu des courbatures inhabituelles au cours des derniers jours ?", [""]),
+	new quiz("Ces derniers jours, avez-vous un mal de gorge ?", [""]),
+	new quiz("Ces dernières 24 heures, avez-vous de la diarrhée ? Avec au moins 3 selles molles.", [""]),
+	new quiz("Ces derniers jours, avez-vous une fatigue inhabituelle qui vous a obligé à vous reposer plus de la moitié de la journée ?", [""]),
+	new quiz("Avez-vous des difficultés importantes pour vous alimenter ou boire depuis plus de 24h ?", [""]),
+	new quiz("Dans les dernières 24 heures, avez-vous noté un manque de souffle inhabituel lorsque vous parlez ou faites un petit effort ?", [""]),
+	new quiz("Actuellement, comment vous vous sentez ?", [""]),
+	new quiz("Quel est votre âge ? Ceci, afin de calculer un facteur de risque spécifique.", [""]),
+	new quiz("Quel est votre poids ? Afin de calculer l’indice de masse corporelle qui est un facteur influençant le risque de complications de l’infection.", [""]),
+	new quiz("Quelle est votre taille ? Afin de calculer l’indice de masse corporelle qui est un facteur influençant le risque de complications de l’infection.", [""]),
+	new quiz("Avez-vous de l’hypertension artérielle mal équilibrée ? Ou avez-vous une maladie cardiaque ou vasculaire ? Ou prenez-vous un traitement à visée cardiologique ?", [""]),
+	new quiz("Êtes-vous diabétique ?", [""]),
+	new quiz("Avez-vous ou avez-vous eu un cancer ?", [""]),
+	new quiz("Avez-vous une maladie respiratoire ? Ou êtes-vous suivi par un pneumologue ?", [""]),
+	new quiz("Avez-vous une insuffisance rénale chronique dialysée ?", [""]),
+	new quiz("Avez-vous une maladie chronique du foie ?", [""]),
+	new quiz("Êtes-vous enceinte ?", [""]),
+	new quiz("Avez-vous une maladie connue pour diminuer vos défenses immunitaires ?", [""]),
+	new quiz("Prenez-vous un traitement immunosuppresseur ? C’est un traitement qui diminue vos défenses contre les infections. Voici quelques exemples : corticoïdes, méthotrexate, ciclosporine, tacrolimus, azathioprine, cyclophosphamide (liste non exhaustive).", [""])
 ];
 
 // Button Start Test
@@ -74,46 +48,76 @@ runTest.addEventListener("click", function () {
 	runTestDiv.classList.add("hide");
 	qaDiv.classList.remove("hide");
 	formBtns.classList.remove("hide");
-	qts.innerText = questions[counter];
-	
+	qts.innerText = reponse[counter].qst;
+	if (counter === 0) {
+		backBtn.classList.add('hide');
+		
+	}
 });
 
 // Button of Next Question
-let nxtBtn;
+let nxtBtn, backBtn, inpuut, chose, getChose;
+backBtn = document.getElementById('form_back');
 nxtBtn = document.getElementById('form_next');
+getChose = [];
+inpuut = document.querySelectorAll('.form_answer input');
+// for (let i = 0; i < inpuut.length; i++) {
+// inpuut[0].checked = false;
+// inpuut.forEach(e () => checked = false;)
+
+// }
 
 let nextQts;
 nextQts = () => {
-	if (qts.innerText === questions[counter]) {
-		counter++;
-		document.querySelector(".question").innerText = questions[counter];
-		// Todo Fix This
-		if (questions.length === (counter + 1) || questions.length === counter) {
-			nxtBtn.classList.add('hide');
-			nxtBtn.onclick = "";
-			runTestDiv.classList.remove("hide");
+	for (let i = 0; i < inpuut.length; i++) {
+		
+		if (qts.innerText === reponse[counter].qst) {
+			if (inpuut[i].checked) {
+				counter++;
+				document.querySelector(".question").innerText = reponse[counter].qst;
+				
+				getChose.push(inpuut[i].value);
+				alert(getChose);
+			}
+			
+		} else {
+			alert('You Must Select !');
 			
 		}
+		
 	}
+	if (reponse.length === (counter + 1) || reponse.length === counter) {
+		nxtBtn.classList.add('hide');
+		
+	}
+	if (counter !== 0) {
+		backBtn.classList.remove('hide');
+		
+	}
+	
 };
 
-// Button of Preview Question
+// Button of Back Question
 
 let backQts;
 backQts = () => {
 	
 	if (counter > 0) {
 		counter--;
-		document.querySelector(".question").innerText = questions[counter];
+		document.querySelector(".question").innerText = reponse[counter].qst;
 		getChose.pop();
+	}
+	if (counter === ((reponse.length) - 2)) {
+		alert('HERE');
+		nxtBtn.classList.remove('hide');
+		
 	}
 };
 
-let chose, getChose;
-getChose = [];
-
-chose = (inp) => {
-	getChose.push(inp.value);
-	alert(getChose);
+chose = () => {
+	// for (let j = 0; j < reponse.length; j++) {
+	// 	if ()
+	
+	// }
 	
 }
