@@ -30,7 +30,7 @@
 
 
     .form_answer {
-      width: 60%;
+      width: 70%;
       text-align: center;
       margin: auto;
 
@@ -90,16 +90,14 @@
 
       input[type="radio"]:checked + span .fake-radiobutton:after {
         display: block;
-      }
 
-      ////////
+      }
     }
 
     .form_btns {
       width: fit-content;
       margin: 1em auto;
       text-align: center;
-
 
       #form_back,
       #form_next {
@@ -116,5 +114,11 @@
 
   .hide {
     display: none;
+  }
+}
+
+@media (max-width: "368px") {
+  * {
+    font-size: 16px;
   }
 }

@@ -55,58 +55,75 @@ runTest.addEventListener("click", function () {
 	}
 });
 
+//get the next qst
+let getQst;
+getQst = (i) => {
+	counter++;
+	document.querySelector(".question").innerText = reponse[counter].qst;
+	//get checked input value
+	getChose.push(inpuut[i].value);
+	alert(getChose);
+}
+
 // Button of Next Question
 let nxtBtn, backBtn, inpuut, chose, getChose;
 backBtn = document.getElementById('form_back');
 nxtBtn = document.getElementById('form_next');
 getChose = [];
 inpuut = document.querySelectorAll('.form_answer input');
-// for (let i = 0; i < inpuut.length; i++) {
-// inpuut[0].checked = false;
-// inpuut.forEach(e () => checked = false;)
-
-// }
 
 let nextQts;
 nextQts = () => {
+	//for all inputs in form answer
 	for (let i = 0; i < inpuut.length; i++) {
-		
+		//
 		if (qts.innerText === reponse[counter].qst) {
-			if (inpuut[i].checked) {
-				counter++;
-				document.querySelector(".question").innerText = reponse[counter].qst;
-				
-				getChose.push(inpuut[i].value);
-				alert(getChose);
-			}
+			//show the targeted choices
+			// Todo function to show choices
 			
+			//after check
+			if (inpuut[i].checked) {
+				//show next Qst
+				getQst(i);
+				
+			}
 		} else {
+			//in case didn't chose
 			alert('You Must Select !');
 			
 		}
 		
 	}
+	btnControl();
+	
+};
+// after first qst
+let btnControl;
+btnControl = () => {
+	// hide next btn in 1qst
 	if (reponse.length === (counter + 1) || reponse.length === counter) {
 		nxtBtn.classList.add('hide');
 		
 	}
+	//show back btn after 1qst
 	if (counter !== 0) {
 		backBtn.classList.remove('hide');
 		
 	}
-	
-};
-
+}
 // Button of Back Question
 
 let backQts;
 backQts = () => {
-	
+	//check if not the first qst
+	//and show the last qst
+	//remove from the main table(getChose)
 	if (counter > 0) {
 		counter--;
 		document.querySelector(".question").innerText = reponse[counter].qst;
 		getChose.pop();
 	}
+	//
 	if (counter === ((reponse.length) - 2)) {
 		alert('HERE');
 		nxtBtn.classList.remove('hide');
