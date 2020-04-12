@@ -44,7 +44,7 @@ reponse = [
 ];
 
 // Button Start Test
-runTest.addEventListener("click", function () {
+runTest.onclick = () => {
 	runTestDiv.classList.add("hide");
 	qaDiv.classList.remove("hide");
 	formBtns.classList.remove("hide");
@@ -53,7 +53,10 @@ runTest.addEventListener("click", function () {
 		backBtn.classList.add('hide');
 		
 	}
-});
+};
+// runTest.addEventListener("click", function () {
+//
+// });
 
 //get the next qst
 let getQst;
@@ -62,7 +65,6 @@ getQst = (i) => {
 	document.querySelector(".question").innerText = reponse[counter].qst;
 	//get checked input value
 	getChose.push(inpuut[i].value);
-	alert(getChose);
 }
 
 // Button of Next Question
@@ -85,14 +87,15 @@ nextQts = () => {
 			if (inpuut[i].checked) {
 				//show next Qst
 				getQst(i);
+				alert(getChose);
 				
 			}
 		} else {
+			// TODO: FIX THIS
 			//in case didn't chose
+			nextAnimation();
 			alert('You Must Select !');
-			
 		}
-		
 	}
 	btnControl();
 	
@@ -138,3 +141,13 @@ chose = () => {
 	// }
 	
 }
+//BTN Animation
+
+// let animationEvent;
+// animationEvent = 'webkitAnimationEnd oanimationend msAnimationEnd animationend';
+// nextAnimation = function () {
+// 	$(nxtBtn).addClass('on');
+// 	$(nxtBtn).one(animationEvent, function () {
+// 		$(nxtBtn).removeClass('on')
+// 	});
+// };

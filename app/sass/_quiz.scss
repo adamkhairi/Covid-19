@@ -107,6 +107,39 @@
         width: 15em;
         cursor: pointer;
       }
+
+      #form_next.on, #form_back.on {
+        -webkit-animation: btnFade 0.6s 0.1s 1 linear alternate;
+        -moz-animation: btnFade 0.6s 0.1s 1 linear alternate;
+        -ms-animation: btnFade 0.6s 0.1s 1 linear alternate;
+        -o-animation: btnFade 0.6s 0.1s 1 linear alternate;
+        animation: btnFade 0.6s 0.1s 1 linear alternate;
+      }
+
+      @keyframes btnFade {
+        0% {
+          opacity: 0;
+          transform: translateY(-100%);
+        }
+        10% {
+          transform: translateY(-100%);
+
+        }
+        15% {
+          transform: translateY(0);
+        }
+        30% {
+          transform: translateY(-50%);
+
+        }
+        40% {
+          transform: translateY(0%);
+
+        }
+        100% {
+          opacity: 1;
+        }
+      }
     }
 
 
@@ -117,6 +150,7 @@
   }
 }
 
+//noinspection CssInvalidMediaFeature
 @media (max-width: "368px") {
   * {
     font-size: 16px;
