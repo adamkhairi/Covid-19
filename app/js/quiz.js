@@ -19,11 +19,11 @@ class quiz {
 
 let reponse;
 reponse = [
-	new quiz("Pensez-vous avoir ou avoir eu de la fièvre ces 10 derniers jours (frissons, sueurs) ?", [""]),
-	new quiz("Quelle est votre température corporelle ?", [""]),
-	new quiz("Ces derniers jours, avez-vous une toux ou une augmentation de votre toux habituelle ?", [""]),
-	new quiz("Avez-vous eu des courbatures inhabituelles au cours des derniers jours ?", [""]),
-	new quiz("Ces derniers jours, avez-vous un mal de gorge ?", [""]),
+	new quiz("Pensez-vous avoir ou avoir eu de la fièvre ces 10 derniers jours (frissons, sueurs) ?", ["<label class=\"radio-button\"><input class=\"input\" name=\"form_choice\" type=\"radio\" value=\"oui\" /><span class=\"label-visible\">Oui<span class=\"fake-radiobutton\"></span></span></label>", "<label class=\"radio-button\"><input class='input' name=\"form_choice\" type=\"radio\" value=\"non\" /><span class=\"label-visible\">Non<span class=\"fake-radiobutton\"></span></span></label>"]),
+	new quiz("Quelle est votre température corporelle ?", ["<label class=\"radio-button\"><input class=\"input\" name=\"form_choice\" type=\"radio\" value=\"oui\" /><span class=\"label-visible\">Oui<span class=\"fake-radiobutton\"></span></span></label>", "<label class=\"radio-button\"><input class='input' name=\"form_choice\" type=\"radio\" value=\"non\" /><span class=\"label-visible\">Non<span class=\"fake-radiobutton\"></span></span></label>"]),
+	new quiz("Ces derniers jours, avez-vous une toux ou une augmentation de votre toux habituelle ?", ["<label class=\"radio-button\"><input class=\"input\" name=\"form_choice\" type=\"radio\" value=\"oui\" /><span class=\"label-visible\">Oui<span class=\"fake-radiobutton\"></span></span></label>", "<label class=\"radio-button\"><input class='input' name=\"form_choice\" type=\"radio\" value=\"non\" /><span class=\"label-visible\">Non<span class=\"fake-radiobutton\"></span></span></label>"]),
+	new quiz("Avez-vous eu des courbatures inhabituelles au cours des derniers jours ?", ["<label class=\"radio-button\"><input class=\"input\" name=\"form_choice\" type=\"radio\" value=\"oui\" /><span class=\"label-visible\">Oui<span class=\"fake-radiobutton\"></span></span></label>", "<label class=\"radio-button\"><input class='input' name=\"form_choice\" type=\"radio\" value=\"non\" /><span class=\"label-visible\">Non<span class=\"fake-radiobutton\"></span></span></label>"]),
+	new quiz("Ces derniers jours, avez-vous un mal de gorge ?", ["<label class=\"radio-button\"><input class=\"input\" name=\"form_choice\" type=\"radio\" value=\"oui\" /><span class=\"label-visible\">Oui<span class=\"fake-radiobutton\"></span></span></label>", "<label class=\"radio-button\"><input class='input' name=\"form_choice\" type=\"radio\" value=\"non\" /><span class=\"label-visible\">Non<span class=\"fake-radiobutton\"></span></span></label>"]),
 	new quiz("Ces dernières 24 heures, avez-vous de la diarrhée ? Avec au moins 3 selles molles.", [""]),
 	new quiz("Ces derniers jours, avez-vous une fatigue inhabituelle qui vous a obligé à vous reposer plus de la moitié de la journée ?", [""]),
 	new quiz("Avez-vous des difficultés importantes pour vous alimenter ou boire depuis plus de 24h ?", [""]),
@@ -49,6 +49,8 @@ runTest.onclick = () => {
 	qaDiv.classList.remove("hide");
 	formBtns.classList.remove("hide");
 	qts.innerText = reponse[counter].qst;
+	document.querySelector('.form_answer').innerHTML = reponse[counter].answers;
+	
 	if (counter === 0) {
 		backBtn.classList.add('hide');
 		
@@ -58,53 +60,52 @@ runTest.onclick = () => {
 //
 // });
 
-//get the next qst
-let getQst;
-getQst = (i) => {
-	counter++;
-	document.querySelector(".question").innerText = reponse[counter].qst;
-	//get checked input value
-	getChose.push(inpuut[i].value);
-}
-
 // Button of Next Question
 let nxtBtn, backBtn, inpuut, chose, getChose;
 backBtn = document.getElementById('form_back');
 nxtBtn = document.getElementById('form_next');
+
 getChose = [];
-inpuut = document.querySelectorAll('.form_answer input');
 
 let nextQts;
 nextQts = () => {
-	//for all inputs in form answer
-	for (let i = 0; i < inpuut.length; i++) {
-		//
-		if (qts.innerText === reponse[counter].qst) {
-			//show the targeted choices
-			// Todo function to show choices
-			
-			//after check
-			if (inpuut[i].checked) {
-				//show next Qst
-				getQst(i);
-				alert(getChose);
-				
-			}
-		} else {
-			// TODO: FIX THIS
-			//in case didn't chose
-			nextAnimation();
-			alert('You Must Select !');
-		}
-	}
+	//
 	btnControl();
 	
+	if (qts.innerText === reponse[counter].qst) {
+		counter++;
+		//get the next qst
+		qts.innerText = reponse[counter].qst;
+		
+		//get the next answers choices
+		document.querySelector('.form_answer').innerHTML = reponse[counter].answers;
+		inpuut = document.querySelectorAll('.form_answer .input');
+		
+		//TODO after check
+		//show next Qst
+		//get checked input value
+		
+		for (let j = 0; j < reponse[counter].answers.length; j++) {
+			if (inpuut[j].checked) {
+				getChose.push(inpuut[j].value);
+				alert(getChose);
+			}
+			
+		}
+		alert(getChose);
+		
+		// TODO: FIX THIS
+		//in case didn't chose
+		
+	}
+	
 };
+
 // after first qst
 let btnControl;
 btnControl = () => {
 	// hide next btn in 1qst
-	if (reponse.length === (counter + 1) || reponse.length === counter) {
+	if (counter === 22) {
 		nxtBtn.classList.add('hide');
 		
 	}
@@ -123,7 +124,11 @@ backQts = () => {
 	//remove from the main table(getChose)
 	if (counter > 0) {
 		counter--;
-		document.querySelector(".question").innerText = reponse[counter].qst;
+		// Back QST
+		qts.innerText = reponse[counter].qst;
+		// Back ANS
+		anDiv.html = reponse[counter].answers;
+		
 		getChose.pop();
 	}
 	//
@@ -134,13 +139,6 @@ backQts = () => {
 	}
 };
 
-chose = () => {
-	// for (let j = 0; j < reponse.length; j++) {
-	// 	if ()
-	
-	// }
-	
-}
 //BTN Animation
 
 // let animationEvent;
