@@ -20,11 +20,59 @@
   }
 
   #form {
-    .form_question {
+    .myDiv {
       height: 10em;
 
-      .question {
+      .form__question {
         @include h3title($blue, left);
+      }
+
+      .form__choice {
+        @include btn-translate(16px, 16px, 1em, .5em);
+        display: inline;
+      }
+
+      input[type="radio"]:after {
+        width: 16px;
+        height: 16px;
+        border-radius: 15px;
+        top: -6px;
+        left: -2px;
+        position: relative;
+        background-color: #d1d3d1;
+        content: "";
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid $blue;
+      }
+
+      input[type="radio"]:checked:after {
+        width: 16px;
+        height: 16px;
+        border-radius: 15px;
+        top: -6px;
+        left: -2px;
+        position: relative;
+        background-color: $blue;
+        content: "";
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid $blue;
+      }
+
+      .choiceTxt {
+        @include btn-translate(6em, 2em, 1em, .9em);
+        display: inline;
+        text-align: center;
+        color: $blue;
+      }
+
+
+      label {
+        @include h3title($black, center);
+        font-size: 1em;
+        margin: .5em;
+
       }
     }
 

@@ -44,37 +44,32 @@
             </h1>
             <input
                     class="start__btn"
-                    id="startTest"
+                    id="start"
                     type="submit"
                     value="Démarrer le test"
             />
         </div>
         <form id="form">
-            <div class="myDiv hide">
-                <div class="form_question" id="formQts">
-                    <h3 class="question">
+            <div class="myDiv">
+                <div class="Quiz">
 
-                    </h3>
-                </div>
-                <div class="form_answer" id="formAns">
-                    <!-- -- -->
 
                 </div>
             </div>
-
+            <!--TODO dgfg-->
             <!--            // Next Back Buttons-->
-            <div class="form_btns hide">
+            <div class="form_btns">
                 <input
-
+                        class="hide"
                         id="form_back"
-                        onclick="backQts()"
+                        onclick="btnBack()"
                         type="button"
                         value="Question Précédente"
                 />
                 <input
-
+                        class="hide"
                         id="form_next"
-                        onclick="nextQts()"
+                        onclick="btnNext()"
                         type="button"
                         value="Question Suivante"
                 />
@@ -97,6 +92,7 @@
 <!-- End of Section Footer -->
 
 <!-- JavaScript Link -->
+<script defer src="dist/js/content.js"></script>
 <script defer src="dist/js/main.js"></script>
 </body>
 </html>
