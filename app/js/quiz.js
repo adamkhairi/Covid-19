@@ -10,6 +10,7 @@ qtsh1 = document.querySelector(".quiz__title");
 
 quiz = document.querySelector('.Quiz');
 start = document.getElementById('start');
+
 counter = 0;
 
 // Button Start Test
@@ -27,7 +28,6 @@ runTest.onclick = () => {
 // runTest.addEventListener("click", function () {
 //
 // });
-
 // Button of Next Question
 
 getChose = [];
@@ -42,9 +42,7 @@ btnNext = () => {
 		ans = document.querySelectorAll('input.form__choice');
 		checkInput(ans);
 		btnControl();
-		
 	}
-	
 }
 // Back BTN
 let btnBack;
@@ -54,9 +52,8 @@ btnBack = () => {
 		quiz.innerHTML = Questions[counter].question;
 		quiz.innerHTML += Questions[counter].rep;
 		ans = document.querySelectorAll('input.form__choice');
-		
+		// checkInput(ans);
 		btnControl();
-		
 	}
 };
 // after first qst
@@ -65,11 +62,9 @@ let btnControl;
 btnControl = () => {
 	if (counter === 0) {
 		back.classList.add('hide');
-		
 	} else {
 		back.classList.remove('hide');
 		next.classList.remove('hide');
-		
 	}
 	if (counter === Questions.length - 1) {
 		next.classList.add('hide');
@@ -88,12 +83,13 @@ checkInput = (ans) => {
 				answer = new select();
 				answer.id = counter;
 				answer.answer = ans[i].value;
-				selections.push(answer);
+				// selections.push(answer);
 				// alert(ans[i].value);
-				
+				// selections.splice(i, 1, answer);
 				console.log(selections);
-				
+				selections.splice(counter, 1, answer);
 			}
+			
 			if ((ans[i].type === "text" || ans[i].type === "number") && ans[i].value) {
 				
 				let answertxt;
@@ -102,16 +98,22 @@ checkInput = (ans) => {
 				answertxt.id = counter;
 				answertxt.answer = ans[i].value;
 				// inputtxt.push(answertxt);
-				selections.push(answertxt)
+				// selections.push(answertxt);
+				selections.splice(counter, 1, answertxt);
+				console.log(selections);
 				// alert(ans[i].value);
-				
 				//TODO FIX Error
 				// alert(ans[i].value);
 			}
 		})
-		
 	}
-	
+}
+
+let newans;
+newans = () => {
+	for (let i = 0; i < Questions.length; i++) {
+		selections.splice(i, 1, answertxt)
+	}
 }
 
 //BTN Animation
