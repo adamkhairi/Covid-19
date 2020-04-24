@@ -12,6 +12,7 @@ quiz = document.querySelector('.Quiz');
 start = document.getElementById('start');
 
 counter = 0;
+let bool;
 
 // Button Start Test
 runTest.onclick = () => {
@@ -20,7 +21,7 @@ runTest.onclick = () => {
 	quiz.innerHTML = Questions[counter].question;
 	quiz.innerHTML += Questions[counter].rep;
 	ans = document.querySelectorAll('input.form__choice');
-	checkInput();
+	checkInput(ans);
 	btnControl();
 	next.classList.remove('hide');
 	
@@ -35,15 +36,17 @@ getChose = [];
 let btnNext;
 btnNext = () => {
 	if (counter < Questions.length) {
-		
 		counter++;
 		quiz.innerHTML = Questions[counter].question;
 		quiz.innerHTML += Questions[counter].rep;
 		ans = document.querySelectorAll('input.form__choice');
 		checkInput(ans);
 		btnControl();
+		// bool = true
+		
 	}
 }
+
 // Back BTN
 let btnBack;
 btnBack = () => {
@@ -54,6 +57,8 @@ btnBack = () => {
 		ans = document.querySelectorAll('input.form__choice');
 		// checkInput(ans);
 		btnControl();
+		bool = true
+		
 	}
 };
 // after first qst
@@ -83,38 +88,44 @@ checkInput = (ans) => {
 				answer = new select();
 				answer.id = counter;
 				answer.answer = ans[i].value;
-				// selections.push(answer);
-				// alert(ans[i].value);
-				// selections.splice(i, 1, answer);
 				console.log(selections);
 				selections.splice(counter, 1, answer);
+				
 			}
 			
 			if ((ans[i].type === "text" || ans[i].type === "number") && ans[i].value) {
 				
 				let answertxt;
 				answertxt = new select();
-				// TODO add ...
 				answertxt.id = counter;
 				answertxt.answer = ans[i].value;
-				// inputtxt.push(answertxt);
-				// selections.push(answertxt);
 				selections.splice(counter, 1, answertxt);
 				console.log(selections);
-				// alert(ans[i].value);
-				//TODO FIX Error
-				// alert(ans[i].value);
+				
 			}
+			
+			algo();
+			bool = true;
 		})
 	}
 }
 
-let newans;
-newans = () => {
-	for (let i = 0; i < Questions.length; i++) {
-		selections.splice(i, 1, answertxt)
+function algo() {
+	for (const select of selections) {
+		if (select.id === 0 && select.answer === "Non" && bool) {
+			
+			alert('skipp temp qst');
+			counter += 2
+			bool = false;
+			
+		} else if (select.id === 3 && select.answer === "Non" && bool) {
+			bool = false;
+			counter += 3;
+			alert("skip tow qst");
+			
+		}
 	}
-}
+};
 
 //BTN Animation
 
