@@ -12,7 +12,7 @@ quiz = document.querySelector('.Quiz');
 start = document.getElementById('start');
 
 counter = 0;
-let bool;
+// let bool;
 
 // Button Start Test
 runTest.onclick = () => {
@@ -55,10 +55,8 @@ btnBack = () => {
 		quiz.innerHTML = Questions[counter].question;
 		quiz.innerHTML += Questions[counter].rep;
 		ans = document.querySelectorAll('input.form__choice');
-		// checkInput(ans);
+		checkInput(ans);
 		btnControl();
-		bool = true
-		
 	}
 };
 // after first qst
@@ -79,53 +77,44 @@ btnControl = () => {
 let checkInput;
 checkInput = (ans) => {
 	ans = document.querySelectorAll('input.form__choice');
-	
 	for (let i = 0; i < ans.length; i++) {
 		ans[i].addEventListener('change', () => {
 			if (ans[i].type === "radio" && ans[i].checked) {
-				
 				let answer;
 				answer = new select();
 				answer.id = counter;
 				answer.answer = ans[i].value;
 				console.log(selections);
 				selections.splice(counter, 1, answer);
-				
 			}
-			
 			if ((ans[i].type === "text" || ans[i].type === "number") && ans[i].value) {
-				
 				let answertxt;
 				answertxt = new select();
 				answertxt.id = counter;
 				answertxt.answer = ans[i].value;
 				selections.splice(counter, 1, answertxt);
 				console.log(selections);
-				
 			}
-			
-			algo();
-			bool = true;
 		})
 	}
 }
 
-function algo() {
-	for (const select of selections) {
-		if (select.id === 0 && select.answer === "Non" && bool) {
-			
-			alert('skipp temp qst');
-			counter += 2
-			bool = false;
-			
-		} else if (select.id === 3 && select.answer === "Non" && bool) {
-			bool = false;
-			counter += 3;
-			alert("skip tow qst");
-			
-		}
-	}
-};
+// function algo() {
+// 	for (const select of selections) {
+// 		select.add
+// 	}
+// 		if (select.id === 0 && select.answer === "Non" && bool) {
+// 			alert('skipp temp qst');
+// 			counter += 2
+// 			bool = false;
+//
+// 		} else if (select.id === 3 && select.answer === "Non" && bool) {
+// 			bool = false;
+// 			counter += 3;
+// 			alert("skip tow qst");
+// 		}
+// 	}
+// };
 
 //BTN Animation
 

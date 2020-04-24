@@ -107,3 +107,13 @@ class select {
 		this.answer = answer;
 	}
 }
+
+class Qst {
+	constructor(question, answer, show) {
+		this.question = question;
+		this.answer = answer;
+		this.show = function () {
+return 	question[counter].question + question[counter].answer
+		}
+	}
+}
