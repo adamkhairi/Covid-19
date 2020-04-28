@@ -1,3 +1,101 @@
+.prgressBar {
+  margin: 0 auto;
+  text-align: center;
+
+  //#spBar {
+  //  width: 600px;
+  //  background-color: $blue;
+  //
+  //}
+  //
+  //#spBar::-webkit-progress-bar {
+  //  background-color: $bluesky;
+  //  border-radius: 2px;
+  //  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  //  color: white;
+  //}
+
+  progress {
+    display: block; /* default: inline-block */
+    width: 300px;
+    margin: 2em auto;
+    padding: 4px;
+    border: 0 none;
+    background: $blue;
+    border-radius: 14px;
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+  }
+
+  progress::-moz-progress-bar {
+    border-radius: 12px;
+    background: #FFF;
+    box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.4), 0 2px 5px 0px rgba(0, 0, 0, 0.3);
+
+  }
+
+  /* webkit */
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    progress {
+      height: 25px;
+    }
+  }
+
+  progress::-webkit-progress-bar {
+    background: transparent;
+  }
+
+  progress::-webkit-progress-value {
+    border-radius: 12px;
+    background: #FFF;
+    box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.4), 0 2px 5px 0px rgba(0, 0, 0, 0.3);
+  }
+}
+
+
+.preambule {
+  width: 70%;
+  text-align: center;
+  background-color: $blue;
+  margin: .8em auto;
+  padding: 1em 2.5em;
+  border-radius: 1em;
+  color: #FFFFFF;
+
+  &--title {
+    @include h2title(white, center);
+    margin: 1em;
+  }
+
+  &--para {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.6em;
+    padding: 1em;
+  }
+
+
+  hr {
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 1em;
+    border: 2.5px solid $yellow;
+  }
+
+  .start__btn {
+    @include btn-start;
+    background-color: $bluesky;
+    color: $blue;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: white;
+      background-color: transparent;
+      border: 2px solid white;
+    }
+  }
+}
+
 .quiz {
   width: 80%;
   margin: 1em auto;
@@ -14,187 +112,136 @@
       margin: 1em;
     }
 
-    .start__btn {
-      @include btn-start
-    }
   }
 
   #form {
-    .myDiv {
+    .Quiz {
       height: 10em;
 
-      .form__question {
-        @include h3title($blue, left);
-      }
-
-      .form__choice {
-        @include btn-translate(16px, 16px, 1em, .5em);
-        display: inline;
-      }
-
-      input[type="radio"]:after {
-        width: 16px;
-        height: 16px;
-        border-radius: 15px;
-        top: -6px;
-        left: -2px;
-        position: relative;
-        background-color: #d1d3d1;
-        content: "";
-        display: inline-block;
-        visibility: visible;
-        border: 2px solid $blue;
-      }
-
-      input[type="radio"]:checked:after {
-        width: 16px;
-        height: 16px;
-        border-radius: 15px;
-        top: -6px;
-        left: -2px;
-        position: relative;
-        background-color: $blue;
-        content: "";
-        display: inline-block;
-        visibility: visible;
-        border: 2px solid $blue;
-      }
-
-      .choiceTxt {
-        @include btn-translate(6em, 2em, 1em, .9em);
-        display: inline;
-        text-align: center;
-        color: $blue;
-      }
-
-
-      label {
-        @include h3title($black, center);
-        font-size: 1em;
-        margin: .5em;
-
+      .rR {
+        margin: 10px auto;
+        width: fit-content;
       }
     }
 
-
-    .form_answer {
-      width: 70%;
-      text-align: center;
-      margin: auto;
-
-      ////////// Radio Inputs /////////
-
-      .radio-button {
-        position: relative;
-        margin: 1em;
-      }
-
-      .checkbox {
-        display: block;
-      }
-
-      .radio-button input {
-        position: absolute;
-        margin: 5px;
-        padding: 0;
-        visibility: hidden;
-      }
-
-      .radio-button .label-visible {
-        margin-left: 2em;
-        margin-bottom: 0;
-      }
-
-      .fake-radiobutton {
-        position: absolute;
-        display: block;
-        top: 7px;
-        left: 3px;
-        width: 20px;
-        height: 20px;
-        border: 3px solid $blue;
-        background-color: white;
-      }
-
-      .fake-radiobutton:after {
-        content: "";
-        display: none;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 12px;
-        height: 12px;
-        background: $yellow;
-        transform: translateX(-50%) translateY(-50%);
-      }
-
-      .fake-radiobutton {
-        border-radius: 50%;
-      }
-
-      .fake-radiobutton:after {
-        border-radius: 50%;
-      }
-
-      input[type="radio"]:checked + span .fake-radiobutton:after {
-        display: block;
-
-      }
+    .form__question {
+      @include h3title($blue, center);
+      margin: 2em 0;
     }
 
-    .form_btns {
-      width: fit-content;
-      margin: 1em auto;
+    .form__choice {
+      @include btn-translate(16px, 16px, 1em, .5em);
+      display: inline;
+      margin: 2em 0;
+
+    }
+
+    input[type="text"] {
+      width: 20em;
+      border-radius: 15px;
+      border: 2px solid $blue;
+      cursor: context-menu !important;
       text-align: center;
 
-      #form_back,
-      #form_next {
-        @include btn-start;
-        color: white;
-        font-weight: 600;
-        width: 15em;
-        cursor: pointer;
-      }
-
-      #form_next.on, #form_back.on {
-        -webkit-animation: btnFade 0.6s 0.1s 1 linear alternate;
-        -moz-animation: btnFade 0.6s 0.1s 1 linear alternate;
-        -ms-animation: btnFade 0.6s 0.1s 1 linear alternate;
-        -o-animation: btnFade 0.6s 0.1s 1 linear alternate;
-        animation: btnFade 0.6s 0.1s 1 linear alternate;
-      }
-
-      @keyframes btnFade {
-        0% {
-          opacity: 0;
-          transform: translateY(-100%);
-        }
-        10% {
-          transform: translateY(-100%);
-
-        }
-        15% {
-          transform: translateY(0);
-        }
-        30% {
-          transform: translateY(-50%);
-
-        }
-        40% {
-          transform: translateY(0%);
-
-        }
-        100% {
-          opacity: 1;
-        }
-      }
     }
 
+    input[type="number"] {
+      width: 20em;
+      border-radius: 15px;
+      border: 2px solid $blue;
+      cursor: context-menu !important;
+      text-align: center;
+
+    }
+
+    input[type="radio"]:after {
+      width: 16px;
+      height: 16px;
+      border-radius: 15px;
+      top: -6px;
+      left: -2px;
+      position: relative;
+      background-color: #d1d3d1;
+      content: "";
+      display: inline-block;
+      visibility: visible;
+      border: 2px solid $blue;
+    }
+
+    input[type="radio"]:checked:after {
+      width: 16px;
+      height: 16px;
+      border-radius: 15px;
+      top: -6px;
+      left: -2px;
+      position: relative;
+      background-color: $blue;
+      content: "";
+      display: inline-block;
+      visibility: visible;
+      border: 2px solid $blue;
+    }
+
+    .choiceTxt {
+      @include btn-translate(6em, 2em, 1em, .9em);
+      display: inline;
+      text-align: center;
+      color: $blue;
+    }
+
+
+    label {
+      @include h3title($black, center);
+      font-size: 1em;
+      margin: .5em 1.5em .5em .5em;
+
+    }
+  }
+
+
+  .form_answer {
+    width: 70%;
+    text-align: center;
+    margin: auto;
 
   }
 
-  .hide {
-    display: none;
+  .form_btns {
+    width: fit-content;
+    margin: 1em auto;
+    text-align: center;
+
+    #form_back,
+    #form_next,
+    #form_submit {
+      @include btn-start;
+      color: white;
+      font-weight: 600;
+      width: 15em;
+      cursor: pointer;
+
+      &:hover {
+        border: 2px solid $blue;
+
+      }
+    }
+  }
+}
+
+
+.hide {
+  display: none;
+}
+
+.complet {
+
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em rgba(#fff, 0);
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 $bluesky;
+    }
   }
 }
 

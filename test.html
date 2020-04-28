@@ -10,12 +10,12 @@
     <!-- JQuery Link Used for Includes of HTML Files -->
     <script src="dist/js/jquery-3.4.1.js"></script>
 
-
     <!-- Font-Family Import -->
     <link
             href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
             rel="stylesheet"
     />
+
     <link href="dist/img/assets/coat.ico" rel="shortcut icon"/>
 
     <title>Covid Test</title>
@@ -33,50 +33,72 @@
 <!-- END of Section NavBar  -->
 
 <main>
+    <section class="prgressBar hide">
+        <progress id="spBar" min="1" max="22" value="1"></progress>
+    </section>
 
     <!--    Section Quiz -->
+    <section class="preambule">
+        <h1 class="preambule--title">Préambule</h1>
+        <p class="preambule--para">L’application est fournie à titre gratuit, en
+            l’état, uniquement à des fins d’information pour contribuer à fluidifier la
+            prise en charge des personnes par les services d’urgences pendant l’épidémie de
+            Coronavirus COVID-19. L’exhaustivité, l’exactitude, le caractère à jour des
+            informations et contenus mis à disposition dans cette application, ou leur
+            adéquation à des finalités particulières, ne sont pas garantis.</p>
+        <hr>
+        <p class="preambule--para">Cette application ne substitue pas votre médecin qui
+            est plus apte à vous donner plus de précision. Les informations de cette
+            application est le premier niveau de la détection des cas possibles du COVID-19.
+        </p>
 
+        <input
+                class="start__btn"
+                id="start"
+                type="button"
+                value="Démarrer le test"
+        />
+    </section>
     <section class="quiz">
-        <div class="quiz__start">
-            <h1 class="quiz__title">
-                Vous pensez avoir été exposé au Corona virus COVID-19 et avez des
-                symptômes ?
-            </h1>
-            <input
-                    class="start__btn"
-                    id="start"
-                    type="submit"
-                    value="Démarrer le test"
-            />
-        </div>
+
         <form id="form">
-            <div class="myDiv">
-                <div class="Quiz">
+
+            <div class="Quiz hide">
+
+                <!--// Div to show QST & ANS-->
 
 
-                </div>
             </div>
-            <!--TODO dgfg-->
-            <!--            // Next Back Buttons-->
+
+            <!-- // Next Back Buttons-->
+
+
             <div class="form_btns">
                 <input
                         class="hide"
                         id="form_back"
-                        onclick="btnBack()"
                         type="button"
                         value="Question Précédente"
                 />
                 <input
                         class="hide"
                         id="form_next"
-                        onclick="btnNext()"
                         type="button"
                         value="Question Suivante"
                 />
+                <input
+                        class="hide"
+                        id="form_submit"
+                        type="button"
+                        value="Terminer le test"
+                >
             </div>
         </form>
     </section>
 
+    <section id="result" class="hide">
+
+    </section>
     <!--  End of Section Quiz -->
 
 </main>
