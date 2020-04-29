@@ -137,7 +137,7 @@ checkInput = (ans) => {
 		
 		ans[i].addEventListener('change', () => {
 			
-			if (ans[i].checked || ((ans[i].type === "text" || ans[i].type === "number") && ans[i].value)) {
+			if (ans[i].checked || (ans[i].type === "number" && ans[i].value)) {
 				// let answer;
 				// answer = new select();
 				// answer.id = counter;

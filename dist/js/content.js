@@ -13,7 +13,7 @@ Questions = [
 		"question":
 			'<p class="form__question">Quelle est votre température corporelle ?</p>',
 		"rep":
-			'<div class="rR" ><input type="number" class=" form__choice choiceTxt" placeholder="34 - 42" min="34" max="42"> <label>°c</label></div>',
+			'<div class="rR" ><input type="number" class="form__choice" placeholder="34 - 42" min="34" max="42"> <label>°c</label></div>',
 	},
 	//////3/////  Toux
 	{

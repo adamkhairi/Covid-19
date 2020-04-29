@@ -147,17 +147,9 @@
 
     }
 
-    input[type="text"] {
-      width: 20em;
-      border-radius: 15px;
-      border: 2px solid $blue;
-      cursor: context-menu !important;
-      text-align: center;
-
-    }
-
     input[type="number"] {
-      width: 20em;
+      width: 16em;
+      height: 2em;
       border-radius: 15px;
       border: 2px solid $blue;
       cursor: context-menu !important;
