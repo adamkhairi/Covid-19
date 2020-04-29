@@ -32,12 +32,17 @@
 
 <!-- END of Section NavBar  -->
 
-<main>
-    <section class="prgressBar hide">
-        <progress id="spBar" min="1" max="22" value="1"></progress>
-    </section>
+<!--   Main  -->
 
-    <!--    Section Quiz -->
+<main>
+    <!-- Section Progress  -->
+
+    <section class="prgressBar hide">
+        <progress id="spBar" max="22" value="1"></progress>
+    </section>
+    <!-- END of Section Progress  -->
+
+    <!--    Section preambule (Start Quiz) -->
     <section class="preambule">
         <h1 class="preambule--title">Préambule</h1>
         <p class="preambule--para">L’application est fournie à titre gratuit, en
@@ -59,11 +64,15 @@
                 value="Démarrer le test"
         />
     </section>
-    <section class="quiz">
+    <!--  End of  Section preambule (Start Quiz) -->
+
+    <!--    Section Quiz  -->
+
+    <section class="quiz hide">
 
         <form id="form">
 
-            <div class="Quiz hide">
+            <div class="Quiz ">
 
                 <!--// Div to show QST & ANS-->
 
@@ -95,13 +104,51 @@
             </div>
         </form>
     </section>
-
-    <section id="result" class="hide">
-
-    </section>
     <!--  End of Section Quiz -->
 
+    <!--Section Loading-->
+
+    <section id="result" class="result hide">
+        <div class="load">
+            <div class="dots-container">
+                <div class="dots"></div>
+                <div class="dots"></div>
+                <div class="dots"></div>
+                <div class="dots"></div>
+                <div class="dots"></div>
+            </div>
+        </div>
+    </section>
+    <!-- End of Section Loading -->
+
+    <!--Section Show Result-->
+
+    <section class="showResult hide">
+        <h1 class="showResult--title">Résultat</h1>
+        <p class="showResult--para" id="msg-1">
+            <!--            Result Message -1-->
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, debitis. Lorem ipsum dolor sit amet,
+            consectetur adipisicing elit. Adipisci, debitis.
+
+        </p>
+        <hr>
+        <p class="showResult--para" id="msg-2">
+            <!--            Result Message -2-->
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, debitis.
+
+        </p>
+        <!--Restart Button-->
+        <input
+                class="start__btn"
+                id="reStart"
+                type="button"
+                value="Redémarrer le test"
+        />
+    </section>
+    <!--End of section Show Result-->
+
 </main>
+<!-- END of Main  -->
 
 <!-- Section Footer  -->
 <footer class="footer">

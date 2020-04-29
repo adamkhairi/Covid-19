@@ -9,9 +9,9 @@ runTestDiv = document.querySelector(".preambule"); // div of Quiz Start page
 runTest = document.getElementById("start"); // Btn Start Quiz in start page
 qtsh1 = document.querySelector(".quiz__title");
 
-quiz = document.querySelector('.Quiz');
-start = document.getElementById('start');
-let divm = document.querySelector('.Quiz')
+quiz = document.querySelector('.Quiz'); //div quiz
+start = document.getElementById('start'); // start the test
+let sectionQuiz = document.querySelector('.quiz'); //section quiz
 counter = 0;
 // Progress Bar
 
@@ -24,9 +24,9 @@ let nextStep = progressBar => {
 	
 	if (document.getElementById(progressBar).value === 22) {
 		//TODO Chage it to BTN Submit TEST !!
-		back.classList.add('complet');
+		formSub.classList.add('complet');
 	} else {
-		back.classList.remove('complet');
+		formSub.classList.remove('complet');
 		
 	}
 };
@@ -36,7 +36,7 @@ let nextStep = progressBar => {
 runTest.addEventListener("click", function () {
 	runTestDiv.classList.add("hide");
 	formBtns.classList.remove("hide");
-	divm.classList.remove("hide")
+	sectionQuiz.classList.remove("hide");
 	quiz.innerHTML = Questions[counter].question;
 	quiz.innerHTML += Questions[counter].rep;
 	ans = document.querySelectorAll('input.form__choice');
@@ -94,10 +94,11 @@ btnControl = () => {
 	}
 	if (counter === Questions.length - 1) {
 		next.classList.add('hide');
-	}
-	if (counter === Questions.length - 1) {
 		formSub.classList.remove('hide');
+		
 	}
+	// if (counter === Questions.length - 1) {
+	// }
 };
 
 let checkInput;
@@ -105,7 +106,13 @@ checkInput = (ans) => {
 	ans = document.querySelectorAll('input.form__choice');
 	for (let i = 0; i < ans.length; i++) {
 		ans[i].addEventListener('change', (e) => {
-			console.log(e)
+			console.log(e);
+			if (!ans[i].checked) {
+				ans[0].checked = true;
+				
+			} else if (!ans[i].value) {
+				ans[0].value = 'Oui';
+			}
 			if (ans[i].type === "radio" && ans[i].checked) {
 				let answer;
 				answer = new select();
@@ -124,35 +131,29 @@ checkInput = (ans) => {
 				console.log(selections);
 				
 			}
+			
 		})
 	}
 }
-let symptom, fMineur, fMajeur, fPronostic;
-fMineur = [];
-fMajeur = [];
-fPronostic = [];
-symptom = [];
 
-let algo;
-algo = () => {
-	for (let select in selections) {
-		console.log();
-		if (selections[select].id === 0 && selections[select].answer === "Non") {
-			// alert('there');
-			
-		} else if (selections[select].id === 1 && selections[select].answer < 15) {
-		
-		}
-	}
+//Loadinh Result Animation
+
+let loadAnim, sectionResult;
+sectionResult = document.querySelector('#result');
+// loadDiv = document.querySelector('.load');
+
+// Show loading page And Result Page ;
+loadAnim = () => {
+	$(sectionQuiz).hide()
+	// .classList.add("hide");
+	$(prgressBar).hide();
+	// loadDiv.classList.remove('hide');
+	sectionResult.classList.remove('hide')
+	setTimeout(function () {
+		// sectionResult.classList.add('hide');
+		$('#result').hide(1000);
+		$('.showResult').show(1000);
+	}, 4000);
 };
 
-//BTN Animation
-
-// let animationEvent;
-// animationEvent = 'webkitAnimationEnd oanimationend msAnimationEnd animationend';
-// nextAnimation = function () {
-// 	$(nxtBtn).addClass('on');
-// 	$(nxtBtn).one(animationEvent, function () {
-// 		$(nxtBtn).removeClass('on')
-// 	});
-// };
+formSub.addEventListener("click", loadAnim);

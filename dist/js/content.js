@@ -189,3 +189,21 @@ class select {
 // 			return question[counter].question + question[counter].answer
 // 	}
 // }
+let symptom, fMineur, fMajeur, fPronostic;
+fMineur = [];
+fMajeur = [];
+fPronostic = [];
+symptom = [];
+
+let algo;
+algo = () => {
+	for (let select in selections) {
+		console.log();
+		if (selections[select].id === 0 && selections[select].answer === "Non") {
+			// alert('there');
+			
+		} else if (selections[select].id === 1 && selections[select].answer < 15) {
+		
+		}
+	}
+};
