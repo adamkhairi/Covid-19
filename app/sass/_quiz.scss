@@ -123,8 +123,11 @@
   }
 
   #form {
+    display: flex;
+    flex-direction: column;
+
     .Quiz {
-      height: 10em;
+      height: max-content;
 
       .rR {
         margin: 10px auto;

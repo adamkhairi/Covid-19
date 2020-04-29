@@ -13,6 +13,7 @@ quiz = document.querySelector('.Quiz'); //div quiz
 start = document.getElementById('start'); // start the test
 let sectionQuiz = document.querySelector('.quiz'); //section quiz
 counter = 0;
+let bool = false;
 // Progress Bar
 
 let spBar, prgressBar;
@@ -34,6 +35,7 @@ let nextStep = progressBar => {
 // Button Start Test
 
 runTest.addEventListener("click", function () {
+	// $(".preambule").hide();
 	runTestDiv.classList.add("hide");
 	formBtns.classList.remove("hide");
 	sectionQuiz.classList.remove("hide");
@@ -45,11 +47,14 @@ runTest.addEventListener("click", function () {
 	next.classList.remove('hide');
 	prgressBar.classList.remove('hide');
 });
+
 // Button of Next Question
 
 let btnNext;
 btnNext = () => {
-	if (counter < Questions.length) {
+	
+	if (counter < Questions.length && bool) {
+		ifbool();
 		counter++;
 		quiz.innerHTML = Questions[counter].question;
 		quiz.innerHTML += Questions[counter].rep;
@@ -59,14 +64,22 @@ btnNext = () => {
 		nextStep('spBar');
 		
 		// bool = true
-		algo();
+		
+	} else {
+		alert('Please choose one');
+		bool = false
 	}
+	
 };
-next.addEventListener('click', btnNext);
+next.addEventListener('click', evt => {
+	evt.preventDefault();
+	btnNext();
+});
 
 // Back BTN
 let btnBack;
 btnBack = () => {
+	
 	if (counter > 0) {
 		counter--;
 		quiz.innerHTML = Questions[counter].question;
@@ -90,53 +103,66 @@ btnControl = () => {
 		back.classList.remove('hide');
 		next.classList.remove('hide');
 		formSub.classList.add('hide');
-		
 	}
 	if (counter === Questions.length - 1) {
 		next.classList.add('hide');
 		formSub.classList.remove('hide');
-		
 	}
 	// if (counter === Questions.length - 1) {
 	// }
 };
+//Splice function
+let spliceFunc;
+spliceFunc = (i) => {
+	//save answer value
+	let answer;
+	answer = new select();
+	answer.id = counter;
+	answer.answer = ans[i].value;
+	//Add to array
+	selections.splice(counter, 1, answer);
+};
+
+// Help boolean
+function ifbool() {
+	
+	bool ? bool = false : bool = true
+	
+}
 
 let checkInput;
 checkInput = (ans) => {
 	ans = document.querySelectorAll('input.form__choice');
 	for (let i = 0; i < ans.length; i++) {
-		ans[i].addEventListener('change', (e) => {
-			console.log(e);
-			if (!ans[i].checked) {
-				ans[0].checked = true;
-				
-			} else if (!ans[i].value) {
-				ans[0].value = 'Oui';
-			}
-			if (ans[i].type === "radio" && ans[i].checked) {
-				let answer;
-				answer = new select();
-				answer.id = counter;
-				answer.answer = ans[i].value;
+		
+		ans[i].addEventListener('change', () => {
+			
+			if (ans[i].checked || ((ans[i].type === "text" || ans[i].type === "number") && ans[i].value)) {
+				// let answer;
+				// answer = new select();
+				// answer.id = counter;
+				// answer.answer = ans[i].value;
+				// selections.splice(counter, 1, answer);
+				spliceFunc(i);
 				console.log(selections);
-				selections.splice(counter, 1, answer);
-				
-			}
-			if ((ans[i].type === "text" || ans[i].type === "number") && ans[i].value) {
-				let answertxt;
-				answertxt = new select();
-				answertxt.id = counter;
-				answertxt.answer = ans[i].value;
-				selections.splice(counter, 1, answertxt);
-				console.log(selections);
-				
+				ifbool();
 			}
 			
-		})
+			// let answertxt;
+			// answertxt = new select();
+			// answertxt.id = counter;
+			// answertxt.answer = ans[i].value;
+			// selections.splice(counter, 1, answertxt);
+			
+			// console.log(selections);
+			
+		});
+		
 	}
 }
+// Algorithm
 
-//Loadinh Result Animation
+//Loading Result Animation
 
 let loadAnim, sectionResult;
 sectionResult = document.querySelector('#result');
@@ -154,6 +180,22 @@ loadAnim = () => {
 		$('#result').hide(1000);
 		$('.showResult').show(1000);
 	}, 4000);
+	
 };
 
-formSub.addEventListener("click", loadAnim);
+formSub.addEventListener("click", ((evt) => {
+	evt.preventDefault();
+	loadAnim();
+	forArray();
+}));
+let showResult;
+showResult = document.querySelector('.showResult')
+$("#reStart").click(() => {
+	// runTestDiv.classList.remove('hide')
+	// $(".showResult").hide();
+	// $("#form").reset();
+	// $("#form").show();
+	// $(".preambule").show();
+	location.reload();
+	return false;
+})
