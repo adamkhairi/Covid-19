@@ -18,7 +18,7 @@
   progress {
     display: block; /* default: inline-block */
     width: 300px;
-    margin: 2em auto;
+    margin: 1em auto;
     padding: 4px;
     border: 0 none;
     background: $blue;
@@ -354,14 +354,25 @@
 
 
 //noinspection CssInvalidMediaFeature
-@media (max-width: "368px") {
-  * {
-    font-size: 16px;
+@media (max-width: "360px") {
+  //* {
+  //  font-size: 16px;
+  //}
+  .prgressBar {
+    //width: 100px;
+    progress {
+      width: 220px;
+      margin: .5em auto;
+    }
   }
   #form {
     label {
       font-size: 1em;
       margin: .5em;
+    }
+
+    input[type="number"].form__choice {
+      width: 6em;
     }
   }
 }
