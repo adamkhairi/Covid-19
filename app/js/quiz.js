@@ -14,6 +14,14 @@ start = document.getElementById('start'); // start the test
 let sectionQuiz = document.querySelector('.quiz'); //section quiz
 counter = 0;
 let bool = false;
+
+//Form
+let myForm;
+myForm = document.querySelector('#form')
+myForm.addEventListener('submit', (evt => {
+	evt.preventDefault();
+	btnNext();
+}))
 // Progress Bar
 
 let spBar, prgressBar;
