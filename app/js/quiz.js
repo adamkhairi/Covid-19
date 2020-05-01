@@ -31,7 +31,7 @@ prgressBar = document.querySelector('.prgressBar')
 let nextStep = progressBar => {
 	document.getElementById(progressBar).value = counter + 1;
 	
-	if (document.getElementById(progressBar).value === 22) {
+	if (document.getElementById(progressBar).value === 23) {
 		//TODO Chage it to BTN Submit TEST !!
 		formSub.classList.add('complet');
 	} else {
@@ -87,7 +87,6 @@ next.addEventListener('click', evt => {
 // Back BTN
 let btnBack;
 btnBack = () => {
-	
 	if (counter > 0) {
 		counter--;
 		quiz.innerHTML = Questions[counter].question;
@@ -96,7 +95,6 @@ btnBack = () => {
 		checkInput(ans);
 		btnControl();
 		nextStep('spBar');
-		
 	}
 };
 back.addEventListener('click', btnBack);
@@ -116,8 +114,7 @@ btnControl = () => {
 		next.classList.add('hide');
 		formSub.classList.remove('hide');
 	}
-	// if (counter === Questions.length - 1) {
-	// }
+	
 };
 //Splice function
 let spliceFunc;
@@ -133,39 +130,20 @@ spliceFunc = (i) => {
 
 // Help boolean
 function ifbool() {
-	
 	bool ? bool = false : bool = true
-	
 }
 
 let checkInput;
 checkInput = (ans) => {
 	ans = document.querySelectorAll('input.form__choice');
 	for (let i = 0; i < ans.length; i++) {
-		
 		ans[i].addEventListener('change', () => {
-			
-			if (ans[i].checked || (ans[i].type === "number" && ans[i].value)) {
-				// let answer;
-				// answer = new select();
-				// answer.id = counter;
-				// answer.answer = ans[i].value;
-				// selections.splice(counter, 1, answer);
+			if (ans[i].checked || (ans[i].type === "number" || ans[i].type === "text" && ans[i].value)) {
 				spliceFunc(i);
 				console.log(selections);
 				ifbool();
 			}
-			
-			// let answertxt;
-			// answertxt = new select();
-			// answertxt.id = counter;
-			// answertxt.answer = ans[i].value;
-			// selections.splice(counter, 1, answertxt);
-			
-			// console.log(selections);
-			
 		});
-		
 	}
 }
 // Algorithm
@@ -174,36 +152,29 @@ checkInput = (ans) => {
 
 let loadAnim, sectionResult;
 sectionResult = document.querySelector('#result');
-// loadDiv = document.querySelector('.load');
 
 // Show loading page And Result Page ;
 loadAnim = () => {
-	$(sectionQuiz).hide()
-	// .classList.add("hide");
+	$(sectionQuiz).hide();
 	$(prgressBar).hide();
-	// loadDiv.classList.remove('hide');
 	sectionResult.classList.remove('hide')
 	setTimeout(function () {
-		// sectionResult.classList.add('hide');
 		$('#result').hide(1000);
 		$('.showResult').show(1000);
 	}, 4000);
-	
 };
 
 formSub.addEventListener("click", ((evt) => {
 	evt.preventDefault();
 	loadAnim();
 	forArray();
+	algo();
 }));
+// Restart Quiz
 let showResult;
 showResult = document.querySelector('.showResult')
 $("#reStart").click(() => {
-	// runTestDiv.classList.remove('hide')
-	// $(".showResult").hide();
-	// $("#form").reset();
-	// $("#form").show();
-	// $(".preambule").show();
 	location.reload();
 	return false;
 })
+console.clear();

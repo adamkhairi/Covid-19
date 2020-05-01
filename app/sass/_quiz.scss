@@ -149,12 +149,12 @@
 
     }
 
-    input[type="number"] {
+    input[type="number"], input[type="text"] {
       width: 15em;
       height: 2em;
       border-radius: 15px;
       border: 2px solid $blue;
-      cursor: context-menu !important;
+      cursor: text;
       text-align: center;
     }
 
