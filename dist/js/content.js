@@ -197,14 +197,18 @@ forArray = () => {
 	for (let i = 0; i < selections.length; i++) {
 		if (i >= 0 && i <= 11) {
 			facteur.symptom.push(selections[i]);
-		} else if (i === 2) {
+		}
+		if (i === 2) {
 			facteur.fMajeur.push(selections[i]);
 			facteur.fMineur.push(selections[i]);
-		} else if (i === 7 || i === 10) {
+		}
+		if (i === 7 || i === 10) {
 			facteur.fMineur.push(selections[i]);
-		} else if (i === 8 || i === 9) {
+		}
+		if (i === 8 || i === 9) {
 			facteur.fMajeur.push(selections[i]);
-		} else if (i >= 14 && i < 22) {
+		}
+		if (i >= 14 && i < 22) {
 			facteur.fPronostic.push(selections[i]);
 		}
 	}

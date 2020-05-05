@@ -62,7 +62,6 @@ let btnNext;
 btnNext = () => {
 	
 	if (counter < Questions.length && bool) {
-		ifbool();
 		counter++;
 		quiz.innerHTML = Questions[counter].question;
 		quiz.innerHTML += Questions[counter].rep;
@@ -71,7 +70,7 @@ btnNext = () => {
 		btnControl();
 		nextStep('spBar');
 		console.warn(counter)
-		// bool = true
+		bool = false;
 		
 	} else {
 		alert('Please choose one');
@@ -130,21 +129,21 @@ spliceFunc = (i) => {
 	selections.splice(counter, 1, answer);
 };
 
-// Help boolean
-function ifbool() {
-	bool ? bool = false : bool = true
-}
+// // Help boolean
+// function ifbool() {
+// 	bool ? bool = false : bool = true
+// }
 
 let checkInput;
 checkInput = (ans) => {
 	ans = document.querySelectorAll('input.form__choice');
 	for (let i = 0; i < ans.length; i++) {
 		ans[i].addEventListener('change', () => {
-			if (ans[i].checked || ((ans[i].type === "number" || ans[i].type === "text") && ans[i].value)) {
-				spliceFunc(i);
-				console.log(selections);
-				ifbool();
-			}
+			// if (ans[i].checked || ((ans[i].type === "number" || ans[i].type === "text") && ans[i].value)) {
+			spliceFunc(i);
+			console.log(selections);
+			bool = true;
+			// }
 		});
 	}
 }
@@ -171,8 +170,6 @@ formSub.addEventListener("click", ((evt) => {
 	evt.preventDefault();
 	checkInput(ans);
 	loadAnim();
-	forArray();
-	algo();
 	mainAlgo();
 }));
 // Restart Quiz
