@@ -173,10 +173,6 @@ Questions = [
 	},
 
 ];
-let selections;
-selections = [];
-let inputtxt;
-inputtxt = [];
 
 class select {
 	constructor(id, answer) {
@@ -185,91 +181,152 @@ class select {
 	}
 }
 
-// class Qst {
-// 	constructor(question, answer) {
-// 		this.question = question;
-// 		this.answer = answer;
-// 	}
-// 	static show(){
-// 			return question[counter].question + question[counter].answer
-// 	}
-// }
-
+let selections, resultMsg, facteur;
+selections = [];
 // F_Filter
-let facteur;
 facteur = {
 	"fMineur": [],
-	"resMineur": 0,
-	
 	"fMajeur": [],
-	"resMajeur": 0,
-	
 	"fPronostic": [],
-	"resPronostic": 0,
-	
 	"symptom": [],
-	"resSymptom": 0,
 };
+let resMineur = 0, resMajeur = 0, resPronostic = 0, resSymptom = 0;
 
 let forArray;
 forArray = () => {
 	for (let i = 0; i < selections.length; i++) {
 		if (i >= 0 && i <= 11) {
 			facteur.symptom.push(selections[i]);
-		}
-		if (i === 2) {
+		} else if (i === 2) {
 			facteur.fMajeur.push(selections[i]);
 			facteur.fMineur.push(selections[i]);
-		}
-		if (i === 7 || i === 10) {
+		} else if (i === 7 || i === 10) {
 			facteur.fMineur.push(selections[i]);
-		}
-		if (i === 8 || i === 9) {
+		} else if (i === 8 || i === 9) {
 			facteur.fMajeur.push(selections[i]);
-		}
-		if (i >= 12 && i < 23) {
+		} else if (i >= 14 && i < 22) {
 			facteur.fPronostic.push(selections[i]);
 		}
 	}
 };
 
 //Algo
-let algo = () => {
+let algo;
+algo = () => {
 	// Les resultats du facteur Mineur
-	if (facteur.fMineur[0] >= 39 || facteur.fMineur[1] === 'Oui' || facteur.fMineur === "fatigue" || facteur.fMineur === 't-fatigue') {
-		facteur.resMineur++;
-		alert('Done');
-		
+	for (let i = 0; i < facteur.fMineur.length; i++) {
+		if (facteur.fMineur[i].answer >= 39 || facteur.fMineur[i].answer === 'Oui' || facteur.fMineur[i].answer === "fatigue" || facteur.fMineur[2].answer === 't-fatigue') {
+			resMineur++;
+			
+		}
 	}
-	// Les resultats du facteur Majeur
 	
-	if (facteur.fMajeur[0] <= 35.4 || facteur.fMajeur[1] === 'Oui' || facteur.fMajeur[1] === 'Oui') {
-		facteur.resMajeur++;
-		alert('Done');
+	// Les resultats du facteur Majeur
+	for (let i = 0; i < facteur.fMajeur.length; i++) {
 		
+		if (facteur.fMajeur[i].answer <= 35.4 || facteur.fMajeur[i].answer === 'Oui') {
+			resMajeur++;
+		}
 	}
 	// Les resultats du Symptom
 	for (let i = 0; i < facteur.symptom; i++) {
 		if (facteur.symptom[i] === 'Oui') {
-			facteur.resSymptom++;
-			alert('Done');
+			resSymptom++;
 		}
 	}
-	// for (const res in facteur.symptom) {
-	// 	if (facteur.symptom[res] === 'Oui') {
-	// 		facteur.resSymptom++
-	// 	}
-	// }
+	
+	alert('Done');
+	console.log(facteur);
 }
+let msg_1 = document.querySelector('#msg-1');
+
+let mainAlgo;
+mainAlgo = () => {
+	forArray();
+	algo();
+	
+	if (selections[1].answer === "Oui" ||
+		(selections[3].answer === "Oui" && selections[5].answer === "Oui") ||
+		(selections[3].answer === "Oui" && selections[4].answer === "Oui") ||
+		(selections[1].answer === "Oui" && selections[6].answer === "Oui")) {
+		
+		///Patient avec fièvre, ou toux + mal de gorge, ou toux + courbatures ou fièvre + diarrhée :
+		if (resPronostic === 0) {
+			////Tout patient sans facteur pronostique :
+			if (resMineur === 0 &&
+				resMajeur === 0 &&
+				selections[13].answer < 50) {
+				
+				////Sans facteur de gravité & <50 ans :
+				msg_1.textContent = resultMsg.msg0;
+				//////Sans facteur de gravité & 50-69 ans, ou avec au moins un facteur de gravité mineur :
+			} else if (resMineur >= 1 &&
+				resMajeur === 0 &&
+				selections[13].answer >= 50 ||
+				selections[13].answer <= 69) {
+				
+				msg_1.textContent = resultMsg.msg3;
+			}
+			
+		} else {
+			if (resMajeur === 0 && resMineur <= 1) {
+				
+				msg_1.textContent = resultMsg.msg3
+			} else if (resMajeur === 0 && resMineur >= 2) {
+				
+				msg_1.textContent = resultMsg.msg4
+			}
+			
+		}
+		if (resMajeur >= 1) {
+			msg_1.textContent = resultMsg.msg4
+			
+		}
+	} else if (selections[1] === 'Oui' && selections[3] === 'Oui') {
+		if (resPronostic === 0) {
+			if (resMajeur === 0 && resMineur >= 1) {
+				
+				msg_1.textContent = resultMsg.msg1
+			}
+		} else {
+			if (resMajeur === 0 && resMineur <= 1) {
+				
+				msg_1.textContent = resultMsg.msg1
+			} else if (resMajeur === 0 && resMineur > 1) {
+				
+				msg_1.textContent = resultMsg.msg4
+			}
+		}
+		if (resMajeur > 0) {
+			
+			msg_1.textContent = resultMsg.msg4;
+		}
+	} else if (selections[1] === 'Oui' ||
+		selections[3] === 'Oui' ||
+		selections[4] === 'Oui' ||
+		selections[5] === 'Oui') {
+		if (resMajeur === 0 && resMineur === 0) {
+			msg_1.textContent = resultMsg.msg5
+		} else {
+			if (resPronostic > 0) {
+				msg_1.textContent = resultMsg.msg5 + ' ' + resultMsg.msg4;
+			}
+		}
+	} else if (resSymptom === 0) {
+		msg_1.textContent = resultMsg.msg6
+	} else if (selections[0] < 15) {
+		msg_1.textContent = resultMsg.msg2;
+	}
+}
+
 // Show Result Msg
-let resultMsg;
 resultMsg = {
 	'msg2':
 		`Prenez contact avec votre médecin généraliste au moindre doute. Cette application n’est pour l’instant pas adaptée aux personnes de moins de 15 ans. En cas d’urgence, appeler le 15.`,
 	'msg0':
 		`Nous vous conseillons de rester à votre domicile et de contacter votre médecin en cas d’apparition de nouveaux symptômes. Vous pourrez aussi utiliser à nouveau l’application pour réévaluer vos symptômes.`,
 	'msg1':
-		`Nous vous conseillons de rester à votre domicile et de contacter votre médecin en cas d’apparition de nouveaux symptômes. Vous pourrez aussi utiliser à nouveau l’application pour réévaluer vos symptômes`,
+		`Téléconsultation ou médecin généraliste ou visite à domicile`,
 	'msg3':
 		`Téléconsultation ou médecin généraliste ou visite à domicile appelez le 141 si une gêne respiratoire ou des difficultés importantes pour s’alimenter ou boire pendant plus de 24h apparaissent.`,
 	'msg4':
@@ -277,7 +334,5 @@ resultMsg = {
 	'msg5':
 		`Votre situation ne relève probablement pas du Covid-19. Consultez votre médecin au moindre doute.`,
 	'msg6':
-		` Votre situation ne relève probablement pas du Covid-19. N’hésitez pas à contacter votre médecin en cas de doute. Vous pouvez refaire le test en cas de nouveau symptôme pour réévaluer la situation. Pour toute information concernant le Covid-19 allez vers la page d’accueil.`,
-	'msg7':
-		`Restez chez vous au maximum en attendant que les symptômes disparaissent. Prenez votre température deux fois par jour. Rappel des mesures d’hygiène.`,
+		` Votre situation ne relève probablement pas du Covid-19. N’hésitez pas à contacter votre médecin en cas de doute. Vous pouvez refaire le test en cas de nouveau symptôme pour réévaluer la situation. Pour toute information concernant le Covid-19 allez vers la page d’accueil.`
 };

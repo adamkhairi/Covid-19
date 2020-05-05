@@ -70,7 +70,7 @@ btnNext = () => {
 		checkInput(ans);
 		btnControl();
 		nextStep('spBar');
-		
+		console.warn(counter)
 		// bool = true
 		
 	} else {
@@ -95,6 +95,8 @@ btnBack = () => {
 		checkInput(ans);
 		btnControl();
 		nextStep('spBar');
+		console.warn(counter)
+		
 	}
 };
 back.addEventListener('click', btnBack);
@@ -138,7 +140,7 @@ checkInput = (ans) => {
 	ans = document.querySelectorAll('input.form__choice');
 	for (let i = 0; i < ans.length; i++) {
 		ans[i].addEventListener('change', () => {
-			if (ans[i].checked || (ans[i].type === "number" || ans[i].type === "text" && ans[i].value)) {
+			if (ans[i].checked || ((ans[i].type === "number" || ans[i].type === "text") && ans[i].value)) {
 				spliceFunc(i);
 				console.log(selections);
 				ifbool();
@@ -165,10 +167,13 @@ loadAnim = () => {
 };
 
 formSub.addEventListener("click", ((evt) => {
+	ans = document.querySelectorAll('input.form__choice');
 	evt.preventDefault();
+	checkInput(ans);
 	loadAnim();
 	forArray();
 	algo();
+	mainAlgo();
 }));
 // Restart Quiz
 let showResult;
