@@ -127,11 +127,6 @@ spliceFunc = (i) => {
 	selections.splice(counter, 1, answer);
 };
 
-// // Help boolean
-// function ifbool() {
-// 	bool ? bool = false : bool = true
-// }
-
 let checkInput;
 checkInput = (ans) => {
 	ans = document.querySelectorAll('input.form__choice');
@@ -145,7 +140,6 @@ checkInput = (ans) => {
 		});
 	}
 }
-// Algorithm
 
 //Loading Result Animation
 

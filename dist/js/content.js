@@ -183,7 +183,8 @@ class select {
 
 let selections, resultMsg, facteur;
 selections = [];
-// F_Filter
+
+// Answer_Facteur_Filter
 facteur = {
 	"fMineur": [],
 	"fMajeur": [],
@@ -242,7 +243,9 @@ algo = () => {
 	alert('Done');
 	console.log(facteur);
 }
+// Result Message
 let msg_1 = document.querySelector('#msg-1');
+// Algorithm
 
 let mainAlgo;
 mainAlgo = () => {
