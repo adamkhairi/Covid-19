@@ -26,8 +26,6 @@ myForm.addEventListener('submit', (evt => {
 
 let spBar, prgressBar;
 prgressBar = document.querySelector('.prgressBar')
-// spBar = document.querySelector('#spBar');
-
 let nextStep = progressBar => {
 	document.getElementById(progressBar).value = counter + 1;
 	
